@@ -127,12 +127,15 @@
   .price__media { display:none; }
   .price__solution { display:block; height:auto; }
 
-  /* tabs row (full width, 3 equal triggers) */
+  /* tabs row: hug the triggers + left-align; scroll internally only once the row would exceed
+     the available width (display minus the section padding) */
   .price__tabs-row {
-    display:flex; gap:2px; padding:2px; width:100%;
+    display:flex; gap:2px; padding:2px; width:max-content; max-width:100%; align-self:flex-start;
+    overflow-x:auto; scrollbar-width:none;
     background:var(--c-3); border:var(--border-1) solid var(--c-6); border-radius:var(--radius-md);
   }
-  .price__tabs-row .price__tab { flex:1 0 0; min-width:0; justify-content:center; overflow:hidden; text-overflow:ellipsis; }
+  .price__tabs-row::-webkit-scrollbar { display:none; }
+  .price__tabs-row .price__tab { flex:none; justify-content:center; white-space:nowrap; }
 
   /* carousel viewport (rounded-32 per Figma) */
   .price__cards {
