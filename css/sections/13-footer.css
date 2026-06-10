@@ -35,14 +35,18 @@
 .footer__mode { display:flex; align-items:center; gap:1px; margin-right:var(--sp-4); padding:2px; background:var(--c-3); border:var(--border-1) solid var(--c-4); border-radius:var(--radius-md); }
 .footer__mode-btn {
   display:flex; align-items:center; justify-content:center; width:28px; height:22px; padding:2px;
-  border:var(--border-1) solid transparent; border-radius:var(--radius-6); color:var(--c-11);
+  border:var(--border-1) solid transparent; border-radius:var(--radius-6); color:var(--c-10);
   transition:background-color .15s ease, color .15s ease, border-color .15s ease;
 }
 .footer__mode-btn:hover { color:var(--c-12); }
 .footer__mode-btn.is-active { background:var(--c-4); border-color:var(--c-6); color:var(--c-12); }
-.footer__mode-btn svg { width:18px; height:18px; }
-.footer__mode-btn svg circle, .footer__mode-btn svg rect, .footer__mode-btn svg path { fill:none; stroke:currentColor; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; }
-.footer__mode-div { width:1px; height:14px; background:var(--c-4); margin-inline:2px; }
+.footer__mode-ico { width:16px; height:16px; display:block; }
+.footer__mode-ico path { fill:currentColor; }   /* exact Figma icons are filled outlines */
+/* divider sits between adjacent buttons; visible only when NEITHER neighbour is selected, and
+   hidden (not removed) next to the active one — visibility toggle means the icons never shift */
+.footer__mode-div { width:1px; height:14px; background:var(--c-4); flex:none; align-self:center; }
+.footer__mode-btn.is-active + .footer__mode-div,
+.footer__mode-div:has(+ .footer__mode-btn.is-active) { visibility:hidden; }
 
 /* --- Mobile --- DEV: reconcile with Figma mobile footer --- */
 @media (max-width:1023px) {
