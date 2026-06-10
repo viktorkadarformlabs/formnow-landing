@@ -33,7 +33,7 @@
   filter:drop-shadow(0 0 12px rgba(0,0,0,0.25));
 }
 .price__ring { width:36px; height:36px; transform:rotate(-90deg); }
-.price__ring-track { fill:none; stroke:color-mix(in srgb, var(--c-12) 50%, transparent); stroke-width:2; }
+.price__ring-track { fill:none; stroke:color-mix(in srgb, var(--c-12) 25%, transparent); stroke-width:2; }
 .price__ring-fill {
   fill:none; stroke:var(--c-12); stroke-width:2; stroke-linecap:round;
   --circ:106.814;  /* 2π·17 */
