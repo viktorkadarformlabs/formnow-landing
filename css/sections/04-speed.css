@@ -44,7 +44,7 @@
 .card-product__meta { color:var(--c-11); padding-bottom:var(--sp-2); }
 .card-product__meta span:first-child { flex:1 0 0; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
 .card-product__meta span:last-child { white-space:nowrap; }
-.card-product__btn { width:100%; border-color:var(--c-7); }
+.card-product__btn { width:100%; }   /* stroke (c-7) + hover (c-12, no fill) come from .btn--outline */
 
 /* Footer: pagination + arrows */
 .speed__footer { display:flex; align-items:center; justify-content:space-between; width:100%; }

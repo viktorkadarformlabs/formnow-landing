@@ -128,8 +128,9 @@ ul,ol { list-style:none; }
 
 .btn--accent  { background:var(--acc-4); color:var(--on-accent); }
 .btn--accent:hover { filter:brightness(1.06); }
-.btn--outline { border:var(--border-1) solid var(--c-6); color:var(--c-12); }
-.btn--outline:hover { background:var(--c-3); }
+.btn--outline { border:var(--border-1) solid var(--c-7); color:var(--c-12); }
+/* basic outline buttons: hover only brightens the stroke (c-7 → c-12), no background fill */
+.btn--outline:hover { border-color:var(--c-12); }
 .btn[disabled],.btn.is-disabled { opacity:var(--alpha-disabled); pointer-events:none; }
 
 /* Reusable section header (Block / Section Header!): heading + subhead on the left, actions on the right */

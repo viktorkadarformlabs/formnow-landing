@@ -38,7 +38,7 @@
 }
 /* Login = outline button tinted with the accent (per Figma) */
 .navbar__login { border-color:var(--acc-4); color:var(--acc-4); }
-.navbar__login:hover { background:color-mix(in srgb, var(--acc-4) 12%, transparent); }
+.navbar__login:hover { background:color-mix(in srgb, var(--acc-4) 12%, transparent); border-color:var(--acc-4); }
 
 /* hamburger — desktop hidden */
 .navbar__menu { display:none; flex-direction:column; gap:5px; width:26px; height:26px; align-items:center; justify-content:center; }
