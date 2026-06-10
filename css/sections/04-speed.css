@@ -54,10 +54,10 @@
 .speed__arrows { display:flex; gap:var(--sp-2); }
 .carousel-arrow {
   width:32px; height:32px; flex:none; display:flex; align-items:center; justify-content:center;
-  border:var(--border-1) solid var(--c-6); border-radius:var(--radius-6); color:var(--c-12);
-  transition:background-color .15s ease, border-color .15s ease;
+  border:var(--border-1) solid var(--c-7); border-radius:var(--radius-6); color:var(--c-12);
+  transition:border-color .15s ease;
 }
-.carousel-arrow:hover { background:var(--c-3); }
+.carousel-arrow:hover { border-color:var(--c-12); }   /* same as outline buttons: stroke c-7 → c-12, no fill */
 .carousel-arrow[disabled] { opacity:var(--alpha-disabled); pointer-events:none; }
 /* Inline chevron — true 4×8 glyph in a 16px box (Figma Icon/Chevron), themed via currentColor */
 .carousel-arrow svg { width:16px; height:16px; display:block; }
