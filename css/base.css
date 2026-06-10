@@ -17,11 +17,11 @@
   font-weight:100 900; font-style:normal; font-display:swap;
 }
 @font-face {
+  /* Midnight Sans RD Pro "48 SemiBold" — bundled web font, so it renders identically on every
+     device (no reliance on a locally-installed copy). */
   font-family:'Midnight Sans RD Pro';
-  src:local('Midnight Sans RD Pro 48 SemiBold'),
-      local('MidnightSansRDPro-48SemiBold'),
-      local('Midnight Sans RD Pro'),
-      url('../assets/fonts/MidnightSansRDPro-48SemiBold.woff2') format('woff2');
+  src:url('../assets/fonts/MidnightSansRDPro-48SemiBold.woff2') format('woff2'),
+      url('../assets/fonts/MidnightSansRDPro-48SemiBold.woff') format('woff');
   font-weight:600; font-style:normal; font-display:swap;
 }
 
