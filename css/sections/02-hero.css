@@ -14,16 +14,16 @@
 .hero__ambient {
   position:absolute; z-index:0; left:0; top:0; width:100%; height:100%;
   object-fit:cover; pointer-events:none;
-  transform:scale(1.05); transform-origin:center;
-  filter:blur(64px) saturate(1.3);
-  opacity:.42; will-change:transform;
+  transform:scale(1.1); transform-origin:center;
+  filter:blur(96px) saturate(1.3);
+  opacity:.34; will-change:transform;
   background:linear-gradient(155deg,#2a2928 0%,#141413 55%,#0c0c0b 100%);  /* fallback until video loads */
 }
 @media (prefers-reduced-motion: reduce) { .hero__ambient { display:none; } }   /* decorative motion */
 /* Light mode reads with less contrast against the bright bg than dark mode — boost the glow ~30% */
-[data-theme="light"] .hero__ambient { filter:blur(64px) saturate(1.3) contrast(1.3); }
+[data-theme="light"] .hero__ambient { filter:blur(96px) saturate(1.3) contrast(1.3); }
 @media (prefers-color-scheme: light) {
-  :root:not([data-theme]) .hero__ambient { filter:blur(64px) saturate(1.3) contrast(1.3); }
+  :root:not([data-theme]) .hero__ambient { filter:blur(96px) saturate(1.3) contrast(1.3); }
 }
 
 .hero__frame {
