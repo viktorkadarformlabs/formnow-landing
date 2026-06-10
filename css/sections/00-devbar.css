@@ -7,6 +7,23 @@
   border-radius:var(--radius-full); box-shadow:var(--shadow-contrast);
 }
 .devbar__label { color:var(--c-10); padding-left:var(--sp-1_5); }
+
+/* Info "i" + hover/focus tooltip explaining this is a prototype-only control */
+.devbar__info { position:relative; display:inline-flex; align-items:center; color:var(--c-10); cursor:help; }
+.devbar__info svg { width:15px; height:15px; display:block; }
+.devbar__info:hover, .devbar__info:focus-visible { color:var(--c-12); outline:none; }
+.devbar__tip {
+  position:absolute; bottom:calc(100% + 10px); right:-6px;
+  width:max-content; max-width:240px;
+  padding:8px 10px; border-radius:var(--radius-md);
+  background:var(--c-3); border:var(--border-1) solid var(--c-5); color:var(--c-11);
+  font-size:12px; line-height:1.45; font-weight:400; text-transform:none; letter-spacing:0;
+  box-shadow:var(--shadow-contrast); text-align:left;
+  opacity:0; transform:translateY(4px); pointer-events:none;
+  transition:opacity .15s ease, transform .15s ease;
+}
+.devbar__info:hover .devbar__tip, .devbar__info:focus-visible .devbar__tip { opacity:1; transform:none; }
+@media (prefers-reduced-motion: reduce) { .devbar__tip { transition:none; } }
 .seg { display:inline-flex; gap:var(--sp-0_5); padding:var(--sp-0_5); background:var(--c-3); border-radius:var(--radius-full); }
 .seg__btn {
   padding:var(--sp-1) var(--sp-3); border-radius:var(--radius-full);
