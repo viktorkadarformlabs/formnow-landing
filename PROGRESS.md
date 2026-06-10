@@ -65,7 +65,7 @@ root node `9489:39290`). Not the configurator, now.formlabs.com, or the Framer s
 - `js/upload.js`: clicking the hero drag-drop field, the sticky upload bar, or any "Upload …" CTA opens the native file picker (one delegated listener; non-upload CTAs ignored). Prototype only — files aren't processed.
 
 ## Polish batch (sticky / price / dashes)
-- Sticky upload bar capped at **720** (`--paragraph-max`) on desktop (hero field stays 1440); secure note dropped there (no room at 720).
+- Sticky upload bar follows the responsive caps: **1440 on desktop, 720 on mobile** (`.upload-bar__inner` max-width content-max → paragraph-max ≤1023). Secure note still hidden only at 1024–1279 (doesn't fit).
 - Sticky bar no longer peeks above the nav on fast/overscroll: `.upload-bar` is `overflow:hidden` (clip) and the slide transform moved to `.upload-bar__panel`, so the tucked panel is clipped instead of translated above the navbar. (Removed the now-redundant hero-intro `.upload-bar` push.)
 - Mobile Price tabs row hugs its triggers + left-aligns (`width:max-content; align-self:flex-start`, tabs `flex:none`) and switches to internal `overflow-x:auto` only when it would exceed the available width.
 - `js/dash.js`: dashed borders are now even — measures each rect's length and sets `stroke-dasharray` to a dash size that fits a whole number of dash+gap pairs (recomputed on resize via ResizeObserver). No more elongated dash at the closure.

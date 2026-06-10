@@ -73,7 +73,7 @@
 .upload-bar__inner {
   position:relative; color:var(--acc-3); --dash-radius:12px;
   display:flex; align-items:center; gap:var(--sp-6);
-  width:100%; max-width:var(--paragraph-max);   /* compact 720 bar (the hero field stays 1440 on desktop) */
+  width:100%; max-width:var(--content-max);   /* 1440 on desktop (capped to 720 on mobile below) */
   border-radius:12px;
   padding:7px 7px 7px 12px;
   cursor:pointer;
@@ -83,8 +83,9 @@
 .upload-bar__left { display:flex; align-items:center; gap:var(--sp-4); }
 .upload-bar__files { display:flex; align-items:center; gap:var(--sp-2); color:var(--acc-4); }
 .upload-bar__drag { font-weight:500; font-size:16px; line-height:1.5; }
-/* the compact 720px bar has no room for the secure note — it's shown in the hero field instead */
-.upload-bar__secure { display:none; align-items:center; gap:var(--sp-1); color:var(--acc-4); font-weight:400; font-size:14px; line-height:1.5; }
+.upload-bar__secure { display:flex; align-items:center; gap:var(--sp-1); color:var(--acc-4); font-weight:400; font-size:14px; line-height:1.5; }
+/* 1024–1280px: the secure note + lock doesn't fit in the bar — hide it */
+@media (min-width:1024px) and (max-width:1279px) { .upload-bar__secure { display:none; } }
 .upload-bar__right { display:flex; flex:1 0 0; min-width:0; align-items:center; justify-content:flex-end; gap:var(--sp-4); }
 .upload-bar__eta { display:flex; align-items:center; gap:var(--sp-1); color:var(--c-12); font-size:14px; line-height:1.5; white-space:nowrap; }
 .upload-bar__eta b { width:5px; text-align:center; }
@@ -107,7 +108,7 @@
   .navbar__login { display:none; }          /* mobile right side = cart + hamburger only */
   .navbar__menu { display:flex; }            /* DEV: hamburger opens a drawer (not in the mobile frame) */
   /* Mobile upload bar = dashed in accent-3, just the ETA + a full-width Upload Now button */
-  .upload-bar__inner { color:var(--acc-3); flex-direction:column; gap:var(--sp-1_5); padding:8px; }
+  .upload-bar__inner { color:var(--acc-3); flex-direction:column; gap:var(--sp-1_5); padding:8px; max-width:var(--paragraph-max); }
   .upload-bar__left, .upload-bar__types { display:none; }
   .upload-bar__right { width:100%; flex:1 1 auto; flex-direction:column; gap:var(--sp-1_5); justify-content:center; }
   .upload-bar__eta { justify-content:center; text-align:center; }
