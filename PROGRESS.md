@@ -57,7 +57,8 @@ root node `9489:39290`). Not the configurator, now.formlabs.com, or the Framer s
 ## Deploy
 - Pushed to GitHub: **https://github.com/viktorkadarformlabs/formnow-landing** (public, `main`).
 - Live via GitHub Pages: **https://viktorkadarformlabs.github.io/formnow-landing/** (root `index.html` → `dist/index.html`; `.nojekyll`).
-- Largest asset `tech-sla.mp4` ~76MB (pushes fine, <100MB; GitHub shows a >50MB notice — consider Git LFS or re-encoding later). To update the live site: `python3 build.py`, commit `dist/`, `git push`.
+- Media re-encoded to web-friendly **H.264 720p, no audio** (`ffmpeg -an -c:v libx264 -crf 27 -vf scale=-2:'min(720,ih)' -movflags +faststart`): sources were ~150MB of 42–46 Mbps clips → now ~2.5MB total (tech-sla 79MB→1.1MB, step-3 46MB→0.83MB, etc.). Step videos converted `.mov`→`.mp4` (refs updated in 06-steps.html). Git history was rewritten to a single clean commit so the old blobs aren't in the repo.
+- To update the live site: `python3 build.py`, commit `dist/`, `git push`.
 
 ## Section node IDs (dark "Large Example")
 sticky `9489:39302` · hero `9489:39386` · companies `9489:39452` · speed `9489:39486` ·
