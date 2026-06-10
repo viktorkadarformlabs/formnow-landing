@@ -170,9 +170,9 @@ ul,ol { list-style:none; }
 /* utility */
 .is-visually-hidden { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0; }
 
-/* ETA "Delivered" abbreviates to "Deliv." under 410px so the line fits on small phones */
+/* ETA "Delivered" abbreviates to "Deliv." under 480px so the line fits on small phones */
 .eta-deliv-short { display:none; }
-@media (max-width:409.98px) {
+@media (max-width:480px) {
   .eta-deliv-full { display:none; }
   .eta-deliv-short { display:inline; }
 }
