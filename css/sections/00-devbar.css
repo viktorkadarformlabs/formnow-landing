@@ -1,7 +1,10 @@
 /* DEV: floating theme toggle (temporary, removed in Batch 5 when Footer toggle lands) */
 .devbar {
+  /* hidden — the floating prototype theme toggle isn't needed (the footer hosts the real one).
+     Kept in the code: change display:none back to flex to re-show it. */
+  display:none;
   position:fixed; right:16px; bottom:16px; z-index:1000;
-  display:flex; align-items:center; gap:var(--sp-2);
+  align-items:center; gap:var(--sp-2);
   padding:var(--sp-1_5) var(--sp-2);
   background:var(--c-2); border:var(--border-1) solid var(--c-4);
   border-radius:var(--radius-full); box-shadow:var(--shadow-contrast);

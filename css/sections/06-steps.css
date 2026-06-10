@@ -63,7 +63,7 @@
   }
   .steps__viewport::-webkit-scrollbar { display:none; }
   .steps__row { height:auto; width:max-content; gap:var(--sp-2); }
-  .steps__tile { flex:none; width:272px; height:auto; aspect-ratio:272 / 480; --tile-radius:24px; scroll-snap-align:start; }
+  .steps__tile { flex:none; width:286px; height:auto; aspect-ratio:272 / 480; --tile-radius:24px; scroll-snap-align:start; }
   /* mobile label: rounded-16 (not 8), content-height (no 56 min), smaller type — per Figma 9489:41440 */
   .steps__label { border-radius:16px; min-height:0; }
   .steps__name { font-size:20px; }

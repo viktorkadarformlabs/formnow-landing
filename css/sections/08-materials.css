@@ -89,7 +89,7 @@
   }
   .materials__viewport::-webkit-scrollbar { display:none; }
   .materials__grid { display:flex; flex-direction:row; gap:var(--sp-2); width:max-content; }
-  .mat-card { flex:none; width:272px; aspect-ratio:272 / 372; scroll-snap-align:start; }
+  .mat-card { flex:none; width:286px; aspect-ratio:272 / 372; scroll-snap-align:start; }
   .mat-card__price { left:15px; right:auto; }
   .mat-card__plus { display:inline-flex; }
   .materials__footer { display:flex; align-items:center; justify-content:space-between; width:100%; }

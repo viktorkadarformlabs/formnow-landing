@@ -148,7 +148,7 @@
 
   /* self-contained card: image on top, then content; no "selected" highlight in the carousel */
   .price-card {
-    flex:none; width:272px; scroll-snap-align:start; display:flex; flex-direction:column; gap:var(--sp-2);
+    flex:none; width:286px; scroll-snap-align:start; display:flex; flex-direction:column; gap:var(--sp-2);
     background:var(--c-1); border-color:var(--c-4); padding:var(--sp-2); box-shadow:none;
   }
   .price-card.is-selected { background:var(--c-1); box-shadow:none; }

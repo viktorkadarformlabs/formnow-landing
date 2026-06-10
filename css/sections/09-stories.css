@@ -72,5 +72,5 @@
   .stories__highlight-top { flex:none; }          /* fix flex-basis:0 collapse in the column */
   .stories__highlight-title { font-size:24px; }    /* SV Mobile Section Heading */
   /* cards carousel: fixed 272px */
-  .story-card { width:272px; }
+  .story-card { width:286px; }
 }

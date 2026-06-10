@@ -70,6 +70,11 @@ root node `9489:39290`). Not the configurator, now.formlabs.com, or the Framer s
 - Mobile Price tabs row hugs its triggers + left-aligns (`width:max-content; align-self:flex-start`, tabs `flex:none`) and switches to internal `overflow-x:auto` only when it would exceed the available width.
 - `js/dash.js`: dashed borders are now even — measures each rect's length and sets `stroke-dasharray` to a dash size that fits a whole number of dash+gap pairs (recomputed on resize via ResizeObserver). No more elongated dash at the closure.
 
+## UX batch
+- Floating prototype theme toggle (devbar) **hidden** (`.devbar { display:none }`, kept in code — flip back to flex to re-show). Footer toggle remains the real one.
+- Mobile horizontal card width **272 → 286px** across all four carousels (steps tiles, materials, price, stories). Aspect-ratios are proportions, left as-is.
+- `js/steps.js`: Steps carousel clips now **play only when in focus** — a clip plays when ≥60% visible within the scroll viewport, others pause (scroll-based: viewport scroll + page scroll + resize + loadeddata + first gesture, for muted-autoplay retries). Desktop = all three visible → all play. (Couldn't verify the mobile pause end-to-end in the automation browser: its autoplay policy blocks programmatic play() without a trusted gesture, and window-resize was stuck at desktop — verify on device.)
+
 ## Section node IDs (dark "Large Example")
 sticky `9489:39302` · hero `9489:39386` · companies `9489:39452` · speed `9489:39486` ·
 price `9489:39634` · steps `9489:39756` · technology `9489:39788` · materials `9489:39823` ·
