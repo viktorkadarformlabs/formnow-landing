@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Now — Landing 2.0 (Dev Prototype)</title>
+  <script>(function(){try{var t=localStorage.getItem('fn-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}try{if((window.scrollY||window.pageYOffset||0)===0)document.documentElement.classList.add('hero-intro');}catch(e){}})();</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/tokens.css?v=1781037622939">
+  <link rel="stylesheet" href="../css/base.css?v=1781083932959">
+  <link rel="stylesheet" href="../css/sections/00-devbar.css?v=1781030912552">
+  <link rel="stylesheet" href="../css/sections/01-sticky.css?v=1781085095126">
+  <link rel="stylesheet" href="../css/sections/02-hero.css?v=1781085096802">
+  <link rel="stylesheet" href="../css/sections/03-companies.css?v=1781035802383">
+  <link rel="stylesheet" href="../css/sections/04-speed.css?v=1781079845134">
+  <link rel="stylesheet" href="../css/sections/05-price.css?v=1781084438723">
+  <link rel="stylesheet" href="../css/sections/06-steps.css?v=1781080719973">
+  <link rel="stylesheet" href="../css/sections/07-technology.css?v=1781043458056">
+  <link rel="stylesheet" href="../css/sections/08-materials.css?v=1781081060365">
+  <link rel="stylesheet" href="../css/sections/09-stories.css?v=1781078654224">
+  <link rel="stylesheet" href="../css/sections/10-discount.css?v=1781078388178">
+  <link rel="stylesheet" href="../css/sections/11-partner.css?v=1781082148064">
+  <link rel="stylesheet" href="../css/sections/12-faq.css?v=1781081894651">
+  <link rel="stylesheet" href="../css/sections/13-footer.css?v=1781047145354">
+  <link rel="stylesheet" href="../css/sections/99-style-reference.css?v=1781030897540">
+  <script defer src="../js/theme.js?v=1781035500239"></script>
+  <script defer src="../js/carousel.js?v=1781083954184"></script>
+  <script defer src="../js/companies.js?v=1781033296899"></script>
+  <script defer src="../js/faq.js?v=1781081101880"></script>
+  <script defer src="../js/hero.js?v=1781084872226"></script>
+  <script defer src="../js/materials.js?v=1781081090012"></script>
+  <script defer src="../js/price.js?v=1781047797002"></script>
+  <script defer src="../js/steps.js?v=1781043463857"></script>
+  <script defer src="../js/sticky.js?v=1781038538188"></script>
+</head>
+<body>
+    <!-- ============ 00-devbar.html ============ -->
+    <!-- DEV: temporary floating theme toggle. The production toggle ships in the Footer (Batch 5). -->
+    <div class="devbar" role="group" aria-label="Theme override">
+      <span class="devbar__label t-label-sm u-uppercase">Theme</span>
+      <div class="seg">
+        <button class="seg__btn" data-theme-option="system">System</button>
+        <button class="seg__btn" data-theme-option="light">Light</button>
+        <button class="seg__btn" data-theme-option="dark">Dark</button>
+      </div>
+    </div>
+    <!-- ============ 01-sticky.html ============ -->
+    <header class="sticky-header" data-node-id="9489:39302">
+
+      <!-- DEV: Sticky main navigation bar -->
+      <div class="navbar">
+        <div class="navbar__inner">
+          <a class="navbar__logo" href="#" aria-label="Form Now — home">
+            <span class="navbar__mark icon" style="--icon:url('https://www.figma.com/api/mcp/asset/139f01f6-198c-43ed-b1ad-bcc62899df53')" aria-hidden="true"></span>
+            <span class="navbar__wordmark">Form<br>NOW</span>
+          </a>
+
+          <nav class="navbar__links" aria-label="Primary">
+            <a href="#">Materials</a>
+            <a href="#">Services</a>
+            <a href="#">Learn</a>
+            <a href="#">Contact</a>
+          </nav>
+
+          <div class="navbar__right">
+            <button class="navbar__cart" type="button" aria-label="Cart, 13 items">
+              <span class="icon" style="--icon:url('https://www.figma.com/api/mcp/asset/05327bb2-60b4-44c7-a65e-4398327031e4'); width:24px; height:24px; --icon-size:17.75px 17.88px"></span>
+              <span class="navbar__badge">13</span>
+            </button>
+            <button class="btn btn--sm btn--outline btn--ms navbar__login" type="button">Login</button>
+            <button class="navbar__menu" type="button" aria-label="Menu"><span></span><span></span></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- DEV: Secondary sticky upload bar. Only appears after the page is scrolled past the hero's
+           upload field (scroll behavior wired in Batch 5). Shown here for review. -->
+      <div class="upload-bar" data-dev-note="Appears on scroll once the hero upload field leaves the viewport">
+       <div class="upload-bar__panel">
+        <div class="upload-bar__inner">
+          <svg class="dashed-stroke" preserveAspectRatio="none" aria-hidden="true"><rect/></svg>
+          <div class="upload-bar__left">
+            <span class="upload-bar__files">
+              <span class="icon" style="--icon:url('https://www.figma.com/api/mcp/asset/db62d57c-c8bb-45c3-9561-5da7a7f42096'); width:20px; height:20px; --icon-size:14.59px 16.26px"></span>
+              <span class="upload-bar__drag">Drag &amp; Drop Your Files</span>
+            </span>
+            <span class="upload-bar__secure">
+              <span class="icon" style="--icon:url('https://www.figma.com/api/mcp/asset/6d26d958-9856-4a4d-8553-13676f70477f'); width:16px; height:16px; --icon-size:10.33px 13px"></span>
+              <span>Uploads are secure and confidential</span>
+            </span>
+          </div>
+          <div class="upload-bar__right">
+            <span class="upload-bar__eta">
+              <span>Order in 3 hr 42 m</span><b>·</b><span>Delivered as soon as Tue, Jun 22</span>
+            </span>
+            <span class="upload-bar__types">(.stl, .obj, .form)</span>
+            <button class="btn btn--sm btn--accent btn--ms" type="button">Upload Now</button>
+          </div>
+        </div>
+       </div>
+      </div>
+
+    </header>
+    <!-- ============ 02-hero.html ============ -->
+    <section class="section hero" data-node-id="9489:39386" data-name="Section/Hero">
+      <!-- DEV: Video has a min height and a maximum, with its base height using viewport height. -->
+      <div class="hero__stage">
+        <!-- DEV: ambient "cinematic" glow — a duplicate of the hero video, blurred + scaled, behind the
+             frame, kept in sync by hero.js. Its colours bleed out as a soft halo (YouTube ambient mode). -->
+        <video class="hero__ambient" autoplay muted loop playsinline aria-hidden="true" tabindex="-1">
+          <source src="../assets/hero.mp4" type="video/mp4" />
+        </video>
+        <div class="hero__frame">
+        <!-- DEV: background looping video. Provide the file at assets/hero.mp4 (gradient poster shows until then). -->
+        <video class="hero__video" autoplay muted loop playsinline aria-hidden="true">
+          <source src="../assets/hero.mp4" type="video/mp4" />
+        </video>
+        <div class="hero__fade hero__fade--top" aria-hidden="true">
+          <div class="pblur pblur--up"><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="hero__darken hero__darken--top"></div>
+        </div>
+        <div class="hero__fade hero__fade--bottom" aria-hidden="true">
+          <div class="pblur"><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="hero__darken hero__darken--bottom"></div>
+        </div>
+
+        <div class="hero__grid">
+          <h1 class="hero__heading">Professional, Low-Cost 3D Printed Parts <br>in 2 Days</h1>
+
+          <div class="hero__badge">
+            <span class="hero__flag"><img src="https://www.figma.com/api/mcp/asset/1f57abcc-96b6-4bc3-a7a7-76f160b99b43" alt="" /></span>
+            <span>Made in USA</span>
+          </div>
+
+          <div class="hero__madeby">
+            <span>Made By</span>
+            <span class="hero__formlabs" aria-label="Formlabs">
+              <img class="hero__formlabs-word" src="https://www.figma.com/api/mcp/asset/b10358bb-b286-49e3-916b-ea6232b68f37" alt="" />
+              <img class="hero__formlabs-mark" src="https://www.figma.com/api/mcp/asset/fd6f92c5-d5ac-46cc-9786-484094f3e718" alt="" />
+            </span>
+          </div>
+        </div>
+
+        <!-- DEV: Upload field sticking to the bottom of the video. Always visible; once scrolled out of
+             view, the secondary sticky upload bar (in the header) appears instead. -->
+        <div class="hero__upload" id="hero-upload">
+          <div class="hero__upload-box">
+            <div class="hero__upload-dash">
+              <svg class="dashed-stroke" preserveAspectRatio="none" aria-hidden="true"><rect/></svg>
+              <div class="hero__upload-left">
+                <span class="hero__upload-files">
+                  <span class="icon" style="--icon:url('https://www.figma.com/api/mcp/asset/5a7828c2-5eb2-4693-9e97-209cbfec82b1'); width:24px; height:24px; --icon-size:17.51px 19.51px"></span>
+                  <span class="hero__upload-drag">Drag &amp; Drop Your Files</span>
+                </span>
+                <span class="hero__upload-secure">
+                  <span class="icon" style="--icon:url('https://www.figma.com/api/mcp/asset/a6e522a8-6de6-4173-8286-3a59f5ad79c5'); width:16px; height:16px; --icon-size:10.33px 13px"></span>
+                  <span>Uploads are secure and confidential</span>
+                </span>
+              </div>
+              <div class="hero__upload-right">
+                <span class="hero__upload-eta"><span>Order in 3 hr 42 m</span><b>·</b><span>Delivered as soon as Tue, Jun 22</span></span>
+                <span class="hero__upload-types">(.stl, .obj, .form)</span>
+                <button class="btn btn--accent btn--ms" type="button">Upload Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div><!-- /.hero__frame -->
+      </div><!-- /.hero__stage -->
+    </section>
+    <!-- ============ 03-companies.html ============ -->
+    <section class="section companies" data-node-id="9489:39452" data-name="Section/Companies">
+      <!-- DEV: Slow conveyor belt, moving constantly. Logos are Figma CDN exports (multi-path vector groups);
+           replace with clean single-file logo assets when assets move out of Figma. Brand logos are
+           fixed-color exports, so they don't theme — they need monochrome/tintable versions for light mode. -->
+      <div class="companies__block">
+        <div class="companies__viewport">
+          <div class="companies__track">
+            <!-- Ford -->
+            <div class="companies__cell"><div class="companies__logo" style="width:78px;height:29.25px" aria-label="Ford">
+              <img src="https://www.figma.com/api/mcp/asset/2204e930-3861-4b45-b188-fd82a09d70be" alt="Ford" />
+            </div></div>
+
+            <!-- Microsoft -->
+            <div class="companies__cell"><div class="companies__logo" style="width:112.116px;height:24px;transform:scaleY(-1)" aria-label="Microsoft">
+              <span style="top:52.55%;right:89.84%;bottom:0;left:0"><img src="https://www.figma.com/api/mcp/asset/f6538c72-1077-4e2c-9bdd-3d6a179e43a8" alt=""/></span>
+              <span style="top:52.55%;right:78.67%;bottom:0;left:11.17%"><img src="https://www.figma.com/api/mcp/asset/57e7ff3e-04d5-4c4b-a395-c9ce10498565" alt=""/></span>
+              <span style="top:19.27%;right:0;bottom:15.87%;left:88.66%"><img src="https://www.figma.com/api/mcp/asset/6cc8cc2b-2341-43c0-9535-6e155c95fa73" alt=""/></span>
+              <span style="top:69.75%;right:53.95%;bottom:18.94%;left:43.49%"><img src="https://www.figma.com/api/mcp/asset/39b52e1e-0900-4f75-97d2-bd4f042c55ca" alt=""/></span>
+              <span style="top:20.03%;right:58.44%;bottom:20.08%;left:27.74%"><img src="https://www.figma.com/api/mcp/asset/d6fe7394-1527-4215-ae21-a8745a39e3cb" alt=""/></span>
+              <span style="top:19.2%;right:45.52%;bottom:36.22%;left:47.35%"><img src="https://www.figma.com/api/mcp/asset/36fdc921-042d-4115-a9c5-196a294fd201" alt=""/></span>
+              <span style="top:20.07%;right:38.52%;bottom:36.43%;left:56.09%"><img src="https://www.figma.com/api/mcp/asset/5929e9f2-96b5-4579-babd-92aed0405618" alt=""/></span>
+              <span style="top:19.23%;right:29%;bottom:36.23%;left:61.62%"><img src="https://www.figma.com/api/mcp/asset/30dce088-4623-4157-8649-360ebc657931" alt=""/></span>
+              <span style="top:19.29%;right:21.92%;bottom:36.23%;left:72.03%"><img src="https://www.figma.com/api/mcp/asset/b14235be-1ce2-451d-b1f6-1843d0df8655" alt=""/></span>
+              <span style="top:19.14%;right:11.53%;bottom:36.14%;left:79.08%"><img src="https://www.figma.com/api/mcp/asset/18513a6b-0e22-499b-be0c-d6c83a1b6581" alt=""/></span>
+              <span style="top:20.07%;right:54.14%;bottom:36.83%;left:43.67%"><img src="https://www.figma.com/api/mcp/asset/3a3cbd44-b441-45e3-93c6-152bba1768bd" alt=""/></span>
+              <span style="top:0;right:89.84%;bottom:52.56%;left:0"><img src="https://www.figma.com/api/mcp/asset/f6538c72-1077-4e2c-9bdd-3d6a179e43a8" alt=""/></span>
+              <span style="top:0;right:78.67%;bottom:52.56%;left:11.17%"><img src="https://www.figma.com/api/mcp/asset/1f12ed9a-68c7-4b91-ac7c-fcfed0f9dabf" alt=""/></span>
+            </div></div>
+
+            <!-- OXO -->
+            <div class="companies__cell"><div class="companies__logo" style="width:89.884px;height:29.014px" aria-label="OXO">
+              <img src="https://www.figma.com/api/mcp/asset/fc89d046-95f6-4915-8c25-280934a8b083" alt="OXO" />
+            </div></div>
+
+            <!-- Black Diamond -->
+            <div class="companies__cell"><div class="companies__logo" style="width:169.853px;height:33px" aria-label="Black Diamond">
+              <span style="top:-1.03%;right:80.93%;bottom:0.14%;left:5.2%"><img src="https://www.figma.com/api/mcp/asset/3ccd467e-48d1-4d01-83db-1cb0d130ebed" alt=""/></span>
+              <span style="top:32.96%;right:5.49%;bottom:33.59%;left:26.78%"><img src="https://www.figma.com/api/mcp/asset/728aa3ca-46eb-419d-8619-6ffea5819c62" alt=""/></span>
+            </div></div>
+
+            <!-- restor3d -->
+            <div class="companies__cell"><div class="companies__logo" style="width:105.883px;height:24px" aria-label="restor3d">
+              <span style="top:0;right:0;bottom:0;left:74.1%"><img src="https://www.figma.com/api/mcp/asset/cf935eb8-d831-4c11-b96a-a5d15bdcbcec" alt=""/></span>
+              <span style="top:9.89%;right:28.22%;bottom:11.83%;left:0"><img src="https://www.figma.com/api/mcp/asset/760008bb-4d52-4c17-bfc7-916faf80cbe2" alt=""/></span>
+            </div></div>
+
+            <!-- Hasbro -->
+            <div class="companies__cell"><div class="companies__logo" style="width:80.737px;height:43.662px" aria-label="Hasbro">
+              <span style="top:12.13%;right:0;bottom:62.35%;left:85.16%;transform:rotate(180deg) scaleX(-1)"><img src="https://www.figma.com/api/mcp/asset/312506b4-8458-43d5-8f7c-15ada9cd1a14" alt=""/></span>
+              <span style="top:11.33%;right:10.87%;bottom:59.41%;left:74.58%;transform:rotate(180deg) scaleX(-1)"><img src="https://www.figma.com/api/mcp/asset/4ed93205-5259-4269-a3ce-a7f092a2704b" alt=""/></span>
+              <span style="top:0;right:25.56%;bottom:55.84%;left:56.7%;transform:rotate(180deg) scaleX(-1)"><img src="https://www.figma.com/api/mcp/asset/b7444a09-ca65-447f-83a4-12c1f4245b79" alt=""/></span>
+              <span style="top:42.8%;right:24.84%;bottom:0;left:31.13%;transform:rotate(180deg) scaleX(-1)"><img src="https://www.figma.com/api/mcp/asset/4b2c6b41-f495-4db2-8eb9-a8c71207a200" alt=""/></span>
+              <span style="top:3.16%;right:52.44%;bottom:42.01%;left:0;transform:rotate(180deg) scaleX(-1)"><img src="https://www.figma.com/api/mcp/asset/c8f711fd-dcb5-405f-97c9-2d67c1cb6b0d" alt=""/></span>
+              <span style="top:15.14%;right:39.55%;bottom:40.2%;left:45.54%;transform:rotate(180deg) scaleX(-1)"><img src="https://www.figma.com/api/mcp/asset/3e1191ae-1d5c-4c44-b9ab-565ea9a5b22a" alt=""/></span>
+            </div></div>
+
+            <!-- NASA -->
+            <div class="companies__cell"><div class="companies__logo" style="width:86.126px;height:24px" aria-label="NASA">
+              <img src="https://www.figma.com/api/mcp/asset/23622dcd-bfe3-42f7-b050-125e8fa3bde5" alt="NASA" />
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ============ 04-speed.html ============ -->
+    <section class="section speed" data-node-id="9489:39486" data-name="Section/Speed">
+      <div class="container speed__container">
+
+        <div class="speed__header">
+          <div class="speed__heading-wrap">
+            <h2 class="t-h1 speed__heading">We're fast. Like, really fast.</h2>
+            <p class="t-subsection u-muted speed__sub">Even faster if you select local pickup during checkout</p>
+          </div>
+          <div class="speed__actions">
+            <button class="btn btn--accent btn--ms" type="button">Upload Your Part</button>
+          </div>
+        </div>
+
+        <!-- DEV: Carousel. Price & shipping are calculated real-time (cached); "Try Part" opens the
+             configurator with that part + material preselected. Arrows scroll the row; cards scroll-snap. -->
+        <div class="speed__carousel">
+          <div class="speed__viewport">
+            <div class="speed__row" id="speed-row">
+              <article class="card-product">
+                <div class="card-product__media"><img class="is-light-only" src="../assets/speed-1-light.png" alt="Steering wheel" /><img class="is-dark-only" src="../assets/speed-1.png" alt="" /></div>
+                <div class="card-product__body">
+                  <div class="card-product__shipped"><span>Shipped in</span><span class="card-product__badge">3 Days</span></div>
+                  <div class="card-product__divider"></div>
+                  <div class="card-product__row"><span class="card-product__name">Steering wheel</span><span class="card-product__price">$124.82</span></div>
+                  <div class="card-product__row card-product__meta"><span>SLA • Grey Resin</span><span>15” × 15” × 3.5”</span></div>
+                  <button class="btn btn--sv btn--outline card-product__btn" type="button">Try Part</button>
+                </div>
+              </article>
+              <article class="card-product">
+                <div class="card-product__media"><img class="is-light-only" src="../assets/speed-2-light.png" alt="Bike pedal set" /><img class="is-dark-only" src="../assets/speed-2.png" alt="" /></div>
+                <div class="card-product__body">
+                  <div class="card-product__shipped"><span>Shipped in</span><span class="card-product__badge">24 Hrs</span></div>
+                  <div class="card-product__divider"></div>
+                  <div class="card-product__row"><span class="card-product__name">Bike pedal set</span><span class="card-product__price">$18.82</span></div>
+                  <div class="card-product__row card-product__meta"><span>SLS • Nylon 12</span><span>4.1” × 3.9” × 0.55”</span></div>
+                  <button class="btn btn--sv btn--outline card-product__btn" type="button">Try Part</button>
+                </div>
+              </article>
+              <article class="card-product">
+                <div class="card-product__media"><img src="https://www.figma.com/api/mcp/asset/d3c04bc6-5dbe-4945-b42f-4ae930a9df4c" alt="Watch casing" /></div>
+                <div class="card-product__body">
+                  <div class="card-product__shipped"><span>Shipped in</span><span class="card-product__badge">24 Hrs</span></div>
+                  <div class="card-product__divider"></div>
+                  <div class="card-product__row"><span class="card-product__name">Watch casing</span><span class="card-product__price">$18.82</span></div>
+                  <div class="card-product__row card-product__meta"><span>SLA • True Cast</span><span>1.85” × 1.57” × 0.47”</span></div>
+                  <button class="btn btn--sv btn--outline card-product__btn" type="button">Try Part</button>
+                </div>
+              </article>
+              <article class="card-product">
+                <div class="card-product__media"><img src="https://www.figma.com/api/mcp/asset/4e7b837d-0112-46a0-b8c1-6883b1fb1a69" alt="Bike stem" /></div>
+                <div class="card-product__body">
+                  <div class="card-product__shipped"><span>Shipped in</span><span class="card-product__badge">24 Hrs</span></div>
+                  <div class="card-product__divider"></div>
+                  <div class="card-product__row"><span class="card-product__name">Bike stem</span><span class="card-product__price">$18.82</span></div>
+                  <div class="card-product__row card-product__meta"><span>SLS • Nylon 12</span><span>4.1” × 3.9” × 0.55”</span></div>
+                  <button class="btn btn--sv btn--outline card-product__btn" type="button">Try Part</button>
+                </div>
+              </article>
+              <article class="card-product">
+                <div class="card-product__media"><img src="https://www.figma.com/api/mcp/asset/3b94d153-803f-4379-aabb-a5fb7f07ec56" alt="Watch strap" /></div>
+                <div class="card-product__body">
+                  <div class="card-product__shipped"><span>Shipped in</span><span class="card-product__badge">24 Hrs</span></div>
+                  <div class="card-product__divider"></div>
+                  <div class="card-product__row"><span class="card-product__name">Watch strap</span><span class="card-product__price">$18.82</span></div>
+                  <div class="card-product__row card-product__meta"><span>SLS • Flexible 80A</span><span>4.1” × 3.9” × 0.55”</span></div>
+                  <button class="btn btn--sv btn--outline card-product__btn" type="button">Try Part</button>
+                </div>
+              </article>
+              <article class="card-product">
+                <div class="card-product__media"><img src="https://www.figma.com/api/mcp/asset/27eae1af-3dc9-4697-82ef-23893fee220a" alt="Bottle holder" /></div>
+                <div class="card-product__body">
+                  <div class="card-product__shipped"><span>Shipped in</span><span class="card-product__badge">24 Hrs</span></div>
+                  <div class="card-product__divider"></div>
+                  <div class="card-product__row"><span class="card-product__name">Bottle holder</span><span class="card-product__price">$18.82</span></div>
+                  <div class="card-product__row card-product__meta"><span>SLA • Color Resin</span><span>4.1” × 3.9” × 0.55”</span></div>
+                  <button class="btn btn--sv btn--outline card-product__btn" type="button">Try Part</button>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="speed__footer">
+            <div class="speed__dots" data-carousel-dots="speed-row"></div>
+            <div class="speed__arrows">
+              <button class="carousel-arrow" type="button" aria-label="Previous" data-carousel-prev="speed-row" disabled>
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 4 L6 8 L10 12" /></svg>
+              </button>
+              <button class="carousel-arrow" type="button" aria-label="Next" data-carousel-next="speed-row">
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 4 L10 8 L6 12" /></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- ============ 05-price.html ============ -->
+    <section class="section price" data-node-id="9489:39634" data-name="Section/Price">
+      <div class="container price__container">
+
+        <div class="section-head">
+          <div class="section-head__text">
+            <h2 class="t-h1 section-head__title">Build for an affordable price.</h2>
+            <p class="t-subsection u-muted section-head__sub">Prototype your project or build your end-use products with us</p>
+          </div>
+          <div class="section-head__actions">
+            <button class="btn btn--accent btn--ms" type="button">Upload to Build</button>
+          </div>
+        </div>
+
+        <!-- DEV: bulk-pricing "solution". DESKTOP = shared media (tabs + 8s autoplay timeline) + 3 stacked cards
+             (the selected one highlighted). MOBILE = a tabs row + a horizontal carousel of self-contained cards
+             (image-topped, outline tags) + a dots/arrows footer (Figma 9489:41283). Content duplicated per topic. -->
+        <div class="price__block">
+
+          <!-- Mobile-only topic tabs row -->
+          <div class="price__tabs-row" role="tablist" aria-label="Example">
+            <button class="price__tab is-active" type="button" role="tab" aria-selected="true" data-topic="computer-case">Computer Case</button>
+            <button class="price__tab" type="button" role="tab" aria-selected="false" data-topic="automotive-door">Automotive Door</button>
+            <button class="price__tab" type="button" role="tab" aria-selected="false" data-topic="miniature">Miniature</button>
+          </div>
+
+          <div class="price__solution">
+            <div class="price__media">
+              <img class="price__img" src="../assets/price-computer-case.png" alt="Computer case assembly" />
+
+              <div class="price__tabs" role="tablist">
+                <button class="price__tab is-active" type="button" role="tab" aria-selected="true" data-topic="computer-case">Computer Case</button>
+                <button class="price__tab" type="button" role="tab" aria-selected="false" data-topic="automotive-door">Automotive Door</button>
+                <button class="price__tab" type="button" role="tab" aria-selected="false" data-topic="miniature">Miniature</button>
+              </div>
+
+              <button class="price__autoplay is-playing" type="button" aria-label="Pause autoplay" data-autoplay>
+                <svg class="price__ring" viewBox="0 0 36 36" aria-hidden="true">
+                  <circle class="price__ring-track" cx="18" cy="18" r="17"></circle>
+                  <circle class="price__ring-fill" cx="18" cy="18" r="17"></circle>
+                </svg>
+                <span class="price__autoplay-icon" aria-hidden="true">
+                  <svg class="price__icon-pause" viewBox="0 0 11.25 13.5" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.6875 0C0.755859 0 0 0.755859 0 1.6875V11.8125C0 12.7441 0.755859 13.5 1.6875 13.5H2.8125C3.74414 13.5 4.5 12.7441 4.5 11.8125V1.6875C4.5 0.755859 3.74414 0 2.8125 0H1.6875ZM8.4375 0C7.50586 0 6.75 0.755859 6.75 1.6875V11.8125C6.75 12.7441 7.50586 13.5 8.4375 13.5H9.5625C10.4941 13.5 11.25 12.7441 11.25 11.8125V1.6875C11.25 0.755859 10.4941 0 9.5625 0H8.4375Z" fill="currentColor"/></svg>
+                  <svg class="price__icon-play" viewBox="0 0 13.5 15.7528" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.56641 0.248121C2.04609 -0.0718006 1.39219 -0.0823475 0.861328 0.216481C0.330469 0.515309 0 1.07781 0 1.68953V14.0645C0 14.6762 0.330469 15.2387 0.861328 15.5376C1.39219 15.8364 2.04609 15.8223 2.56641 15.5059L12.6914 9.31843C13.1941 9.01257 13.5 8.46765 13.5 7.87703C13.5 7.2864 13.1941 6.745 12.6914 6.43562L2.56641 0.248121Z" fill="currentColor"/></svg>
+                </span>
+              </button>
+            </div>
+
+            <div class="price__cards" data-price-cards>
+              <div class="price__cards-row" id="price-row">
+
+                <div class="price-card is-selected" role="button" tabindex="0" data-price-card data-img="../assets/price-computer-case.png">
+                  <div class="price-card__media"><img src="../assets/price-computer-case.png" alt="" /></div>
+                  <div class="price-card__inner">
+                    <div class="price-card__head">
+                      <span class="price-card__title">Water block</span>
+                      <span class="price-card__badge">SLA • Clear</span>
+                    </div>
+                    <div class="price-card__divider"></div>
+                    <div class="price-card__tiers">
+                      <div class="price-tier"><span class="price-tier__qty">× 1</span><div class="price-tier__value"><span class="price-tier__price">$34.12</span><span class="price-tier__disc">Base</span></div></div>
+                      <div class="price-tier"><span class="price-tier__qty">× 10</span><div class="price-tier__value"><span class="price-tier__price">$19.33</span><span class="price-tier__disc">-55%</span></div></div>
+                      <div class="price-tier"><span class="price-tier__qty">× 100</span><div class="price-tier__value"><span class="price-tier__price">$14.00</span><span class="price-tier__disc">-65%</span></div></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="price-card" role="button" tabindex="0" data-price-card data-img="../assets/price-computer-case.png">
+                  <div class="price-card__media"><img src="../assets/price-computer-case.png" alt="" /></div>
+                  <div class="price-card__inner">
+                    <div class="price-card__head">
+                      <span class="price-card__title">Piping</span>
+                      <span class="price-card__badge">SLA • Durable</span>
+                    </div>
+                    <div class="price-card__divider"></div>
+                    <div class="price-card__tiers">
+                      <div class="price-tier"><span class="price-tier__qty">× 1</span><div class="price-tier__value"><span class="price-tier__price">$12.41</span><span class="price-tier__disc">Base</span></div></div>
+                      <div class="price-tier"><span class="price-tier__qty">× 10</span><div class="price-tier__value"><span class="price-tier__price">$8.82</span><span class="price-tier__disc">-55%</span></div></div>
+                      <div class="price-tier"><span class="price-tier__qty">× 100</span><div class="price-tier__value"><span class="price-tier__price">$6.20</span><span class="price-tier__disc">-65%</span></div></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="price-card" role="button" tabindex="0" data-price-card data-img="../assets/price-computer-case.png">
+                  <div class="price-card__media"><img src="../assets/price-computer-case.png" alt="" /></div>
+                  <div class="price-card__inner">
+                    <div class="price-card__head">
+                      <span class="price-card__title">Panels</span>
+                      <span class="price-card__badge">SLA • Rigid 10K</span>
+                    </div>
+                    <div class="price-card__divider"></div>
+                    <div class="price-card__tiers">
+                      <div class="price-tier"><span class="price-tier__qty">× 1</span><div class="price-tier__value"><span class="price-tier__price">$9.41</span><span class="price-tier__disc">Base</span></div></div>
+                      <div class="price-tier"><span class="price-tier__qty">× 10</span><div class="price-tier__value"><span class="price-tier__price">$4.82</span><span class="price-tier__disc">-55%</span></div></div>
+                      <div class="price-tier"><span class="price-tier__qty">× 100</span><div class="price-tier__value"><span class="price-tier__price">$3.20</span><span class="price-tier__disc">-65%</span></div></div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- Mobile-only carousel footer -->
+          <div class="price__footer">
+            <div class="price__dots" data-carousel-dots="price-row"></div>
+            <div class="price__arrows">
+              <button class="carousel-arrow" type="button" aria-label="Previous" data-carousel-prev="price-row" disabled><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 4 L6 8 L10 12"/></svg></button>
+              <button class="carousel-arrow" type="button" aria-label="Next" data-carousel-next="price-row"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 4 L10 8 L6 12"/></svg></button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <!-- ============ 06-steps.html ============ -->
+    <section class="section steps" data-node-id="9489:39756" data-name="Section/Steps">
+      <!-- DEV: 3 constantly-playing videos, one per workflow step. Drop files at assets/step-1.mp4 … step-3.mp4. -->
+      <div class="container steps__container">
+
+        <div class="section-head">
+          <div class="section-head__text">
+            <h2 class="t-h1 section-head__title">Three quick steps to a printed part.</h2>
+            <p class="t-subsection u-muted section-head__sub">Instant quoting with transparent pricing. Drag and drop a model, pick from 28+ industrial-grade materials, and order your part in less than a minute.</p>
+          </div>
+          <div class="section-head__actions">
+            <button class="btn btn--accent btn--ms" type="button">Upload Now</button>
+          </div>
+        </div>
+
+        <div class="steps__viewport">
+          <div class="steps__row" id="steps-row">
+          <div class="steps__tile">
+            <video class="steps__video" autoplay muted loop playsinline aria-hidden="true"><source src="../assets/step-1.mp4" type="video/mp4" /></video>
+            <div class="steps__overlay">
+              <div class="pblur"><i></i><i></i><i></i><i></i><i></i></div>
+              <div class="steps__darken"></div>
+              <div class="steps__label"><span class="steps__num">1.</span><span class="steps__name">Upload</span></div>
+            </div>
+          </div>
+          <div class="steps__tile">
+            <video class="steps__video" autoplay muted loop playsinline aria-hidden="true"><source src="../assets/step-2.mp4" type="video/mp4" /></video>
+            <div class="steps__overlay">
+              <div class="pblur"><i></i><i></i><i></i><i></i><i></i></div>
+              <div class="steps__darken"></div>
+              <div class="steps__label"><span class="steps__num">2.</span><span class="steps__name">Configure</span></div>
+            </div>
+          </div>
+          <div class="steps__tile">
+            <video class="steps__video" autoplay muted loop playsinline aria-hidden="true"><source src="../assets/step-3.mp4" type="video/mp4" /></video>
+            <div class="steps__overlay">
+              <div class="pblur"><i></i><i></i><i></i><i></i><i></i></div>
+              <div class="steps__darken"></div>
+              <div class="steps__label"><span class="steps__num">3.</span><span class="steps__name">Delivery</span></div>
+            </div>
+          </div>
+          </div>
+        </div>
+
+        <!-- Mobile only: tiles become a horizontal carousel (Figma 9489:41420) -->
+        <div class="steps__footer">
+          <div class="steps__dots" data-carousel-dots="steps-row"></div>
+          <div class="steps__arrows">
+            <button class="carousel-arrow" type="button" aria-label="Previous" data-carousel-prev="steps-row" disabled><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 4 L6 8 L10 12"/></svg></button>
+            <button class="carousel-arrow" type="button" aria-label="Next" data-carousel-next="steps-row"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 4 L10 8 L6 12"/></svg></button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- ============ 07-technology.html ============ -->
+    <section class="section tech" data-node-id="9489:39788" data-name="Section/Technology">
+      <div class="container tech__container">
+
+        <div class="section-head">
+          <div class="section-head__text">
+            <h2 class="t-h1 section-head__title">Material Technologies.</h2>
+          </div>
+        </div>
+
+        <div class="tech__row">
+          <article class="tech__card">
+            <div class="tech__media"><video class="tech__video" autoplay muted loop playsinline poster="../assets/tech-sla.png" aria-label="SLA printed part"><source src="../assets/tech-sla.mp4" type="video/mp4" /></video></div>
+            <div class="tech__body">
+              <h3 class="t-section tech__title">SLA</h3>
+              <div class="tech__divider"></div>
+              <p class="tech__desc">Stereolithography, or resin 3D printing, refers to a process in which a light source cures liquid resin, hardening it layer by layer. SLA 3D printers produce parts with smoother surface finishes, tighter tolerances, and higher dimensional accuracy than other 3D printing technologies.</p>
+            </div>
+          </article>
+
+          <article class="tech__card">
+            <div class="tech__media"><video class="tech__video" autoplay muted loop playsinline poster="../assets/tech-sls.png" aria-label="SLS printed parts"><source src="../assets/tech-sls.mp4" type="video/mp4" /></video></div>
+            <div class="tech__body">
+              <h3 class="t-section tech__title">SLS</h3>
+              <div class="tech__divider"></div>
+              <p class="tech__desc">Selective laser sintering (SLS) is the most common additive manufacturing technology for industrial applications, trusted by engineers and manufacturers across different industries for its ability to produce strong, functional parts.</p>
+            </div>
+          </article>
+        </div>
+
+      </div>
+    </section>
+    <!-- ============ 08-materials.html ============ -->
+    <section class="section materials" data-node-id="9489:39823" data-name="Section/Materials">
+      <div class="container materials__container">
+
+        <div class="section-head">
+          <div class="section-head__text">
+            <h2 class="t-h1 section-head__title">Premium Materials, Unbeatable Prices.</h2>
+            <p class="t-subsection u-muted section-head__sub">Industrial SLA and SLS materials, now accessible to anyone.</p>
+          </div>
+          <div class="section-head__actions">
+            <button class="btn btn--accent btn--ms" type="button">Upload Your Part</button>
+          </div>
+        </div>
+
+        <!-- DEV: 6×3 material grid. Each card has a DEFAULT state (example part • size, material, price) and a
+             SELECTED state revealed on hover (desktop) or by tapping the + button (mobile): blurred image +
+             dark scrim + material name, description and key specs. Hover border = c-6. -->
+        <div class="materials__viewport">
+          <div class="materials__grid" id="materials-row">
+
+          <article class="mat-card" data-mat tabindex="0">
+            <img class="mat-card__img" src="../assets/material-1.png" alt="" />
+            <span class="mat-card__price">$15.49</span>
+            <button class="mat-card__plus" type="button" aria-label="Show material details"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3.5V12.5M3.5 8H12.5"/></svg></button>
+            <div class="mat-card__stack"><p class="mat-card__part"><b>Heat Shield</b> • 3.2in</p><p class="mat-card__mat">SLA • Formlabs Grey V5</p></div>
+            <div class="mat-card__scrim"></div>
+            <div class="mat-card__overlay"><div class="mat-card__top"><p class="mat-card__name">Grey Resin V5</p><p class="mat-card__desc">Stiff and strong matte resin with fast printing, high accuracy, and fine details. Ideal for prototyping and general-purpose applications.</p></div><div class="mat-card__specs"><p>Tensile Strength: 65 MPa</p><p>Elongation at Break: 6%</p><p>Flexural Modulus: 2.8 GPa</p></div></div>
+          </article>
+
+          <article class="mat-card" data-mat tabindex="0">
+            <img class="mat-card__img" src="../assets/material-2.png" alt="" />
+            <span class="mat-card__price">$16.93</span>
+            <button class="mat-card__plus" type="button" aria-label="Show material details"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3.5V12.5M3.5 8H12.5"/></svg></button>
+            <div class="mat-card__stack"><p class="mat-card__part"><b>Knob</b> • 2.4in</p><p class="mat-card__mat">SLA • Formlabs Black V5</p></div>
+            <div class="mat-card__scrim"></div>
+            <div class="mat-card__overlay"><div class="mat-card__top"><p class="mat-card__name">Black Resin V5</p><p class="mat-card__desc">Stiff and strong matte resin with high strength, accuracy, and fine details. Perfect for functional prototypes and end-use parts.</p></div><div class="mat-card__specs"><p>Tensile Strength: 65 MPa</p><p>Elongation at Break: 6%</p><p>Flexural Modulus: 2.8 GPa</p></div></div>
+          </article>
+
+          <article class="mat-card" data-mat tabindex="0">
+            <img class="mat-card__img" src="../assets/material-3.png" alt="" />
+            <span class="mat-card__price">$15.61</span>
+            <button class="mat-card__plus" type="button" aria-label="Show material details"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3.5V12.5M3.5 8H12.5"/></svg></button>
+            <div class="mat-card__stack"><p class="mat-card__part"><b>Architectural Model</b> • 2.9in</p><p class="mat-card__mat">SLA • Formlabs White V5</p></div>
+            <div class="mat-card__scrim"></div>
+            <div class="mat-card__overlay"><div class="mat-card__top"><p class="mat-card__name">White Resin V5</p><p class="mat-card__desc">Stiff and strong matte resin with high strength, accuracy, and fine details. Excellent for prototyping and visual models.</p></div><div class="mat-card__specs"><p>Tensile Strength: 65 MPa</p><p>Elongation at Break: 6%</p><p>Flexural Modulus: 2.8 GPa</p></div></div>
+          </article>
+
+          <article class="mat-card" data-mat tabindex="0">
+            <img class="mat-card__img" src="../assets/material-4.png" alt="" />
+            <span class="mat-card__price">$15.04</span>
+            <button class="mat-card__plus" type="button" aria-label="Show material details"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3.5V12.5M3.5 8H12.5"/></svg></button>
+            <div class="mat-card__stack"><p class="mat-card__part"><b>Millifluidics</b> • 2.4in</p><p class="mat-card__mat">SLA • Formlabs Clear V5</p></div>
+            <div class="mat-card__scrim"></div>
+            <div class="mat-card__overlay"><div class="mat-card__top"><p class="mat-card__name">Clear Resin V5</p><p class="mat-card__desc">Exceptionally clear and color-neutral 3D printing resin, offering fast print speed, high accuracy, transparency, strong mechanical properties.</p></div><div class="mat-card__specs"><p>Optical Transmittance: 85%</p><p>Flexural Strength: 105 MPa</p><p>Elongation at Break: 8%</p></div></div>
+          </article>
+
+          <article class="mat-card" data-mat tabindex="0">
+            <img class="mat-card__img" src="../assets/material-5.png" alt="" />
+            <span class="mat-card__price">$51.02</span>
+            <button class="mat-card__plus" type="button" aria-label="Show material details"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3.5V12.5M3.5 8H12.5"/></svg></button>
+            <div class="mat-card__stack"><p class="mat-card__part"><b>Snap Fit Box</b> • 3.4in</p><p class="mat-card__mat">SLA • Formlabs Color V5</p></div>
+            <div class="mat-card__scrim"></div>
+            <div class="mat-card__overlay"><div class="mat-card__top"><p class="mat-card__name">Color Resin V5</p><p class="mat-card__desc">Stiff and strong matte resin with custom colors, high strength, and fine details. Perfect for colorful prototypes and models.</p></div><div class="mat-card__specs"><p>Tensile Strength: 65 MPa</p><p>Elongation at Break: 6%</p><p>Flexural Modulus: 2.8 GPa</p></div></div>
+          </article>
+
+          <article class="mat-card" data-mat tabindex="0">
+            <img class="mat-card__img" src="../assets/material-6.png" alt="" />
+            <span class="mat-card__price">$35.93</span>
+            <button class="mat-card__plus" type="button" aria-label="Show material details"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3.5V12.5M3.5 8H12.5"/></svg></button>
+            <div class="mat-card__stack"><p class="mat-card__part"><b>Thermo Mold</b> • 3.0in</p><p class="mat-card__mat">SLA • Formlabs Rigid 10K</p></div>
+            <div class="mat-card__scrim"></div>
+            <div class="mat-card__overlay"><div class="mat-card__top"><p class="mat-card__name">Rigid 10K Resin</p><p class="mat-card__desc">Glass-filled resin with exceptional stiffness and heat resistance, simulating high-performance thermoplastics for functional testing.</p></div><div class="mat-card__specs"><p>Flexural Modulus: 10 GPa</p><p>Heat Deflection: 218°C @ 0.45 MPa</p><p>Tensile Strength: 78 MPa</p></div></div>
+          </article>
+
+          <article class="mat-card" data-mat tabindex="0">
+            <img class="mat-card__img" src="../assets/material-7.png" alt="" />
+            <span class="mat-card__price">$12.70</span>
+            <button class="mat-card__plus" type="button" aria-label="Show material details"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3.5V12.5M3.5 8H12.5"/></svg></button>
+            <div class="mat-card__stack"><p class="mat-card__part"><b>Buckle</b> • 1.7in</p><p class="mat-card__mat">SLA • Formlabs Tough 1500 V2</p></div>
+            <div class="mat-card__scrim"></div>
+            <div class="mat-card__overlay"><div class="mat-card__top"><p class="mat-card__name">Tough 1500 V2 Resin</p><p class="mat-card__desc">A resilient material with strength, stiffness, and toughness comparable to polypropylene (PP), offering exceptional resistance to fractures.</p></div><div class="mat-card__specs"><p>Tensile Strength: 34 MPa</p><p>Elongation at Break: 155%</p><p>Flexural Strength: 41 MPa</p></div></div>
+          </article>
+
+          <article class="mat-card" data-mat tabindex="0">
+            <img class="mat-card__img" src="../assets/material-8.png" alt="" />
+            <span class="mat-card__price">$26.40</span>
+            <button class="mat-card__plus" type="button" aria-label="Show material details"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3.5V12.5M3.5 8H12.5"/></svg></button>
+            <div class="mat-card__stack"><p class="mat-card__part"><b>Dumbbell Cover</b> • 3.7in</p><p class="mat-card__mat">SLA • Formlabs Tough 1000</p></div>
+            <div class="mat-card__scrim"></div>
+            <div class="mat-card__overlay"><div class="mat-card__top"><p class="mat-card__name">Tough 1000 Resin</p><p class="mat-card__desc">Ductile, impact-resistant material with strength and toughness comparable to HDPE, designed for exceptional wear and fatigue resistance.</p></div><div class="mat-card__specs"><p>Elongation at Break: 180%</p><p>Flexural Strength: 29 MPa</p><p>Tensile Modulus: 0.931 GPa</p></div></div>
+          </article>
+
+          <article class="mat-card" data-mat tabindex="0">
+            <img class="mat-card__img" src="../assets/material-9.png" alt="" />
+            <span class="mat-card__price">$14.09</span>
+            <button class="mat-card__plus" type="button" aria-label="Show material details"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3.5V12.5M3.5 8H12.5"/></svg></button>
+            <div class="mat-card__stack"><p class="mat-card__part"><b>Cable Relief</b> • 1.7in</p><p class="mat-card__mat">SLA • Formlabs Elastic 50A V2</p></div>
+            <div class="mat-card__scrim"></div>
+            <div class="mat-card__overlay"><div class="mat-card__top"><p class="mat-card__name">Elastic 50A Resin V2</p><p class="mat-card__desc">Soft, elastomeric resin that mimics silicone. Ideal for grips, cushioning, gaskets, and wearable prototypes.</p></div><div class="mat-card__specs"><p>Shore Hardness: 50A</p><p>Elongation at Break: 160%</p><p>Tear Strength: 6.8 kN/m</p></div></div>
+          </article>
+
+          <article class="mat-card" data-mat tabindex="0">
+            <img class="mat-card__img" src="../assets/material-10.png" alt="" />
+            <span class="mat-card__price">$15.10</span>
+            <button class="mat-card__plus" type="button" aria-label="Show material details"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3.5V12.5M3.5 8H12.5"/></svg></button>
+            <div class="mat-card__stack"><p class="mat-card__part"><b>Handle Grip</b> • 2.8in</p><p class="mat-card__mat">SLA • Formlabs Flexible 80A</p></div>
+            <div class="mat-card__scrim"></div>
+            <div class="mat-card__overlay"><div class="mat-card__top"><p class="mat-card__name">Flexible 80A Resin</p><p class="mat-card__desc">Hard rubber-like elastomeric resin with wear resistance. Perfect for parts requiring flexibility and durability.</p></div><div class="mat-card__specs"><p>Shore Hardness: 80A</p><p>Elongation at Break: 100%</p><p>Tear Strength: 12 kN/m</p></div></div>
+          </article>
+
+          <article class="mat-card" data-mat tabindex="0">
+            <img class="mat-card__img" src="../assets/material-11.png" alt="" />
+            <span class="mat-card__price">$39.76</span>
+            <button class="mat-card__plus" type="button" aria-label="Show material details"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3.5V12.5M3.5 8H12.5"/></svg></button>
+            <div class="mat-card__stack"><p class="mat-card__part"><b>Ski Goggle Frame</b> • 6.9in</p><p class="mat-card__mat">SLS • Formlabs Nylon 11</p></div>
+            <div class="mat-card__scrim"></div>
+            <div class="mat-card__overlay"><div class="mat-card__top"><p class="mat-card__name">Nylon 11 Powder</p><p class="mat-card__desc">Strong, wear-resistant, and impact-resistant SLS powder with UV resistance. Ideal for functional prototypes and end-use parts.</p></div><div class="mat-card__specs"><p>Tensile Strength: 48 MPa</p><p>Elongation at Break: 26%</p><p>Flexural Modulus: 1.5 GPa</p></div></div>
+          </article>
+
+          <article class="mat-card" data-mat tabindex="0">
+            <img class="mat-card__img" src="../assets/material-12.png" alt="" />
+            <span class="mat-card__price">$18.44</span>
+            <button class="mat-card__plus" type="button" aria-label="Show material details"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3.5V12.5M3.5 8H12.5"/></svg></button>
+            <div class="mat-card__stack"><p class="mat-card__part"><b>Bike Pedal</b> • 3.5in</p><p class="mat-card__mat">SLS • Formlabs Nylon 12</p></div>
+            <div class="mat-card__scrim"></div>
+            <div class="mat-card__overlay"><div class="mat-card__top"><p class="mat-card__name">Nylon 12 Powder</p><p class="mat-card__desc">Robust SLS powder with high strength, wear resistance, and UV stability. Perfect for functional parts and assemblies.</p></div><div class="mat-card__specs"><p>Tensile Strength: 50 MPa</p><p>Elongation at Break: 18%</p><p>Flexural Modulus: 1.8 GPa</p></div></div>
+          </article>
+
+          <article class="mat-card" data-mat tabindex="0">
+            <img class="mat-card__img" src="../assets/material-13.png" alt="" />
+            <span class="mat-card__price">$42.24</span>
+            <button class="mat-card__plus" type="button" aria-label="Show material details"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3.5V12.5M3.5 8H12.5"/></svg></button>
+            <div class="mat-card__stack"><p class="mat-card__part"><b>Bike Stem</b> • 5.5in</p><p class="mat-card__mat">SLS • Formlabs Nylon 12 GF</p></div>
+            <div class="mat-card__scrim"></div>
+            <div class="mat-card__overlay"><div class="mat-card__top"><p class="mat-card__name">Nylon 12 GF Powder</p><p class="mat-card__desc">Glass-filled nylon powder with exceptional stiffness, heat resistance, and low creep. Ideal for structural parts.</p></div><div class="mat-card__specs"><p>Flexural Modulus: 3.5 GPa</p><p>Heat Deflection: 172°C @ 0.45 MPa</p><p>Tensile Strength: 52 MPa</p></div></div>
+          </article>
+
+          <article class="mat-card" data-mat tabindex="0">
+            <img class="mat-card__img" src="../assets/material-14.png" alt="" />
+            <span class="mat-card__price">$16.10</span>
+            <button class="mat-card__plus" type="button" aria-label="Show material details"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3.5V12.5M3.5 8H12.5"/></svg></button>
+            <div class="mat-card__stack"><p class="mat-card__part"><b>Watch Strap</b> • 10.3in</p><p class="mat-card__mat">SLS • Formlabs TPU 90A</p></div>
+            <div class="mat-card__scrim"></div>
+            <div class="mat-card__overlay"><div class="mat-card__top"><p class="mat-card__name">TPU 90A Powder</p><p class="mat-card__desc">Elastomeric SLS powder with impact and tear resistance. Perfect for soft-touch parts, living hinges, and flexible assemblies.</p></div><div class="mat-card__specs"><p>Shore Hardness: 90A</p><p>Elongation at Break: 136%</p><p>Tear Strength: 51 kN/m</p></div></div>
+          </article>
+
+          <article class="mat-card" data-mat tabindex="0">
+            <img class="mat-card__img" src="../assets/material-15.png" alt="" />
+            <span class="mat-card__price">$50.37</span>
+            <button class="mat-card__plus" type="button" aria-label="Show material details"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3.5V12.5M3.5 8H12.5"/></svg></button>
+            <div class="mat-card__stack"><p class="mat-card__part"><b>Drone Body</b> • 5.9in</p><p class="mat-card__mat">SLS • Formlabs Nylon 12 White</p></div>
+            <div class="mat-card__scrim"></div>
+            <div class="mat-card__overlay"><div class="mat-card__top"><p class="mat-card__name">Nylon 12 White Powder</p><p class="mat-card__desc">Robust white SLS powder with high strength, wear resistance, and UV stability. Ideal for visible functional parts.</p></div><div class="mat-card__specs"><p>Tensile Strength: 50 MPa</p><p>Elongation at Break: 18%</p><p>Flexural Modulus: 1.8 GPa</p></div></div>
+          </article>
+
+          </div>
+        </div>
+
+        <!-- Mobile only: the grid becomes a horizontal carousel (Figma 9489:41499) -->
+        <div class="materials__footer">
+          <div class="materials__dots" data-carousel-dots="materials-row"></div>
+          <div class="materials__arrows">
+            <button class="carousel-arrow" type="button" aria-label="Previous" data-carousel-prev="materials-row" disabled><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 4 L6 8 L10 12"/></svg></button>
+            <button class="carousel-arrow" type="button" aria-label="Next" data-carousel-next="materials-row"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 4 L10 8 L6 12"/></svg></button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- ============ 09-stories.html ============ -->
+    <section class="section stories" data-node-id="9489:39996" data-name="Section/Stories">
+      <div class="container stories__container">
+
+        <div class="section-head">
+          <div class="section-head__text">
+            <h2 class="t-h1 section-head__title">Stories.</h2>
+            <p class="t-subsection u-muted section-head__sub">Explore the latest announcements, releases, and company news.</p>
+          </div>
+          <div class="section-head__actions">
+            <button class="btn btn--sv btn--outline stories__seeall" type="button">See All</button>
+          </div>
+        </div>
+
+        <!-- Highlighted story -->
+        <div class="stories__highlight">
+          <div class="stories__highlight-media"><img src="../assets/story-1.png" alt="Featured story" /></div>
+          <div class="stories__highlight-text">
+            <div class="stories__highlight-top">
+              <div class="stories__meta">
+                <span class="stories__cat">Interview</span><span class="stories__sep"></span><span class="stories__date">June 26</span>
+              </div>
+              <h3 class="stories__highlight-title">Long Placeholder Video Title to Check How This Title Would Break Into Two Lines</h3>
+            </div>
+            <button class="btn btn--sv btn--outline stories__learn" type="button">
+              Learn More
+              <svg class="stories__chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 4 L10 8 L6 12" /></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- DEV: horizontal carousel of story cards (arrows scroll the row; cards scroll-snap). -->
+        <div class="stories__carousel">
+          <div class="stories__viewport">
+            <div class="stories__row" id="stories-row">
+              <article class="story-card" data-card><div class="story-card__media"><img src="../assets/story-2.png" alt="" /></div><div class="story-card__text"><div class="stories__meta"><span class="stories__cat">Guide</span><span class="stories__sep"></span><span class="stories__date">June 26</span></div><p class="story-card__title">Long Placeholder Video Title to Check How This Title Would Break Into Two Lines</p></div></article>
+              <article class="story-card" data-card><div class="story-card__media"><img src="../assets/story-1.png" alt="" /></div><div class="story-card__text"><div class="stories__meta"><span class="stories__cat">Interview</span><span class="stories__sep"></span><span class="stories__date">June 26</span></div><p class="story-card__title">Long Placeholder Video Title to Check How This Title Would Break Into Two Lines</p></div></article>
+              <article class="story-card" data-card><div class="story-card__media"><img src="../assets/story-2.png" alt="" /></div><div class="story-card__text"><div class="stories__meta"><span class="stories__cat">Guide</span><span class="stories__sep"></span><span class="stories__date">June 26</span></div><p class="story-card__title">Long Placeholder Video Title to Check How This Title Would Break Into Two Lines</p></div></article>
+              <article class="story-card" data-card><div class="story-card__media"><img src="../assets/story-3.png" alt="" /></div><div class="story-card__text"><div class="stories__meta"><span class="stories__cat">Whitepaper</span><span class="stories__sep"></span><span class="stories__date">June 26</span></div><p class="story-card__title">Long Placeholder Video Title to Check How This Title Would Break Into Two Lines</p></div></article>
+              <article class="story-card" data-card><div class="story-card__media"><img src="../assets/story-2.png" alt="" /></div><div class="story-card__text"><div class="stories__meta"><span class="stories__cat">Guide</span><span class="stories__sep"></span><span class="stories__date">June 26</span></div><p class="story-card__title">Long Placeholder Video Title to Check How This Title Would Break Into Two Lines</p></div></article>
+              <article class="story-card" data-card><div class="story-card__media"><img src="../assets/story-3.png" alt="" /></div><div class="story-card__text"><div class="stories__meta"><span class="stories__cat">Whitepaper</span><span class="stories__sep"></span><span class="stories__date">June 26</span></div><p class="story-card__title">Long Placeholder Video Title to Check How This Title Would Break Into Two Lines</p></div></article>
+            </div>
+          </div>
+
+          <div class="stories__footer">
+            <div class="stories__dots" data-carousel-dots="stories-row"></div>
+            <div class="stories__arrows">
+              <button class="carousel-arrow" type="button" aria-label="Previous" data-carousel-prev="stories-row" disabled>
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 4 L6 8 L10 12" /></svg>
+              </button>
+              <button class="carousel-arrow" type="button" aria-label="Next" data-carousel-next="stories-row">
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 4 L10 8 L6 12" /></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- ============ 10-discount.html ============ -->
+    <section class="section discount" data-node-id="9489:40053" data-name="Section/Discount">
+      <div class="container discount__container">
+        <div class="discount__highlight">
+          <div class="discount__text">
+            <div class="discount__top">
+              <div class="discount__stack">
+                <p class="discount__eyebrow">Get a part in your hands</p>
+                <h2 class="discount__title">Start your first project with 10% discount</h2>
+              </div>
+              <p class="discount__body">STL, STEP, OBJ, 3MF, IGES. Instant quote across every material we stock. Order by 2 PM ET, ships next business day.</p>
+            </div>
+            <button class="btn btn--accent btn--sv discount__cta" type="button">Enter Your Email</button>
+          </div>
+          <div class="discount__media"><img src="../assets/discount.png" alt="" /></div>
+        </div>
+      </div>
+    </section>
+    <!-- ============ 11-partner.html ============ -->
+    <section class="section partner" data-node-id="9489:40083" data-name="Section/Partner">
+      <div class="container partner__container">
+
+        <div class="section-head">
+          <div class="section-head__text">
+            <h2 class="t-h1 section-head__title">Partner with Form Now</h2>
+            <p class="t-subsection u-muted section-head__sub">Real parts. Real projects. Real impact.</p>
+          </div>
+        </div>
+
+        <div class="partner__highlight">
+          <div class="partner__media"><img src="../assets/partner.png" alt="" /></div>
+          <div class="partner__text">
+            <div class="partner__top">
+              <h3 class="partner__title">Join the Form Now Creator Team. Let&rsquo;s make cool stuff together.</h3>
+              <p class="partner__body">We don&rsquo;t take cold applications from just anyone. If you&rsquo;re serious, fill out this short questionnaire and we&rsquo;ll take a look. We review every pitch carefully, but we only say yes when it&rsquo;s a hell yes. Thanks for building cool stuff.</p>
+            </div>
+            <button class="btn btn--sv partner__cta" type="button">
+              Start
+              <!-- DEV: exact Figma "outline/share" icon (node 9489:40957) — filled glyph, tinted via currentColor -->
+              <!-- viewBox padded to a 24px placeholder (glyph 19.5 centred, inset 9.38%) per Figma 9489:40108 -->
+              <svg class="partner__share" viewBox="-2.25 -2.25 24 24" aria-hidden="true">
+                <path d="M6.75 0C7.16421 0 7.5 0.335786 7.5 0.75C7.5 1.16421 7.16421 1.5 6.75 1.5H2.75C2.05921 1.5 1.5 2.05921 1.5 2.75V16.75C1.5 17.4408 2.05921 18 2.75 18H16.75C17.4408 18 18 17.4408 18 16.75V12.75C18 12.3358 18.3358 12 18.75 12C19.1642 12 19.5 12.3358 19.5 12.75V16.75C19.5 18.2692 18.2692 19.5 16.75 19.5H2.75C1.23079 19.5 0 18.2692 0 16.75V2.75C0 1.23079 1.23079 0 2.75 0H6.75Z"/>
+                <path d="M18.7998 0.00292969C18.8086 0.00350679 18.8174 0.00301474 18.8262 0.00390625C18.8538 0.00669566 18.8806 0.0128561 18.9072 0.0185547C18.9509 0.0279593 18.9948 0.0391266 19.0371 0.0566406L19.0391 0.0585938C19.044 0.0606745 19.0488 0.0632486 19.0537 0.0654297C19.0901 0.0815878 19.1244 0.100821 19.1572 0.12207C19.1674 0.128687 19.1767 0.136468 19.1865 0.143555C19.213 0.162638 19.2381 0.18291 19.2617 0.205078C19.2706 0.213449 19.2796 0.221675 19.2881 0.230469C19.3487 0.293317 19.398 0.365575 19.4336 0.445312C19.4397 0.45895 19.4439 0.473252 19.4492 0.487305C19.4598 0.515377 19.4684 0.543866 19.4756 0.573242C19.4801 0.591694 19.4852 0.609948 19.4883 0.628906C19.4892 0.634771 19.4904 0.640583 19.4912 0.646484C19.4959 0.680392 19.5 0.714801 19.5 0.75V7.75C19.5 8.16419 19.1642 8.49997 18.75 8.5C18.3358 8.5 18 8.16421 18 7.75V2.56055L10.2803 10.2803C9.98739 10.5732 9.51262 10.5731 9.21973 10.2803C8.92683 9.98738 8.92683 9.51262 9.21973 9.21973L16.9395 1.5H11.75C11.3358 1.5 11 1.16421 11 0.75C11 0.335786 11.3358 0 11.75 0H18.75C18.7667 4.12437e-06 18.7833 0.00184793 18.7998 0.00292969Z"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- ============ 12-faq.html ============ -->
+    <section class="section faq" data-node-id="9489:40109" data-name="Section/FAQ">
+      <div class="container faq__container">
+
+        <div class="section-head">
+          <div class="section-head__text">
+            <h2 class="t-h1 section-head__title">Common Questions</h2>
+          </div>
+        </div>
+
+        <!-- DEV: accordion — click a question to expand its answer (plus rotates to ×). One open at a time (faq.js).
+             Two INDEPENDENT columns: col 1 = items 1–4, col 2 = items 5–8, so opening an item only affects its own
+             column (the other column never shifts), and on mobile they stack back into 1–8 reading order.
+             Answer copy is placeholder grounded in the prototype; swap final FAQ content later. -->
+        <div class="faq__cols">
+
+          <div class="faq__col">
+
+            <div class="faq-item" data-faq>
+              <button class="faq-item__q" type="button" aria-expanded="false">
+                <span class="faq-item__qtext">What is Form Now?</span>
+                <span class="faq-item__plus" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 7.25V16.75M7.25 12H16.75"/></svg></span>
+              </button>
+              <div class="faq-item__answer"><div class="faq-item__answer-inner"><span class="faq-item__divider" aria-hidden="true"></span><p>Form Now is Formlabs&rsquo; on-demand 3D printing service. Upload a model, get an instant quote across 28+ industrial-grade materials, and we print and ship professional parts — often in as little as 2 days.</p></div></div>
+            </div>
+
+            <div class="faq-item" data-faq>
+              <button class="faq-item__q" type="button" aria-expanded="false">
+                <span class="faq-item__qtext">How do I get my design printed?</span>
+                <span class="faq-item__plus" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 7.25V16.75M7.25 12H16.75"/></svg></span>
+              </button>
+              <div class="faq-item__answer"><div class="faq-item__answer-inner"><span class="faq-item__divider" aria-hidden="true"></span><p>Drag and drop your file to get an instant quote, choose a material and finish, then check out. We handle printing, post-processing, and shipping for you.</p></div></div>
+            </div>
+
+            <div class="faq-item" data-faq>
+              <button class="faq-item__q" type="button" aria-expanded="false">
+                <span class="faq-item__qtext">How long does it take to get parts?</span>
+                <span class="faq-item__plus" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 7.25V16.75M7.25 12H16.75"/></svg></span>
+              </button>
+              <div class="faq-item__answer"><div class="faq-item__answer-inner"><span class="faq-item__divider" aria-hidden="true"></span><p>Most orders ship in 1–2 business days. Order by 2 PM ET and eligible parts ship the next business day; choose local pickup at checkout to get them even faster.</p></div></div>
+            </div>
+
+            <div class="faq-item" data-faq>
+              <button class="faq-item__q" type="button" aria-expanded="false">
+                <span class="faq-item__qtext">Where do you ship to?</span>
+                <span class="faq-item__plus" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 7.25V16.75M7.25 12H16.75"/></svg></span>
+              </button>
+              <div class="faq-item__answer"><div class="faq-item__answer-inner"><span class="faq-item__divider" aria-hidden="true"></span><p>We ship across the United States, with international shipping rolling out. Available options and delivery estimates are shown at checkout.</p></div></div>
+            </div>
+
+          </div>
+
+          <div class="faq__col">
+
+            <div class="faq-item" data-faq>
+              <button class="faq-item__q" type="button" aria-expanded="false">
+                <span class="faq-item__qtext">What file formats are accepted?</span>
+                <span class="faq-item__plus" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 7.25V16.75M7.25 12H16.75"/></svg></span>
+              </button>
+              <div class="faq-item__answer"><div class="faq-item__answer-inner"><span class="faq-item__divider" aria-hidden="true"></span><p>We accept STL, STEP, OBJ, 3MF, IGES and .FORM files — just drag and drop. Your models stay secure and confidential, and you retain all rights to them.</p></div></div>
+            </div>
+
+            <div class="faq-item" data-faq>
+              <button class="faq-item__q" type="button" aria-expanded="false">
+                <span class="faq-item__qtext">What materials are available?</span>
+                <span class="faq-item__plus" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 7.25V16.75M7.25 12H16.75"/></svg></span>
+              </button>
+              <div class="faq-item__answer"><div class="faq-item__answer-inner"><span class="faq-item__divider" aria-hidden="true"></span><p>Over 28 industrial SLA and SLS materials — from Grey, Black, and Clear resins to Tough, Flexible, and Nylon powders. Each lists key specs so you can match the right material to your part.</p></div></div>
+            </div>
+
+            <div class="faq-item" data-faq>
+              <button class="faq-item__q" type="button" aria-expanded="false">
+                <span class="faq-item__qtext">What is the maximum part size?</span>
+                <span class="faq-item__plus" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 7.25V16.75M7.25 12H16.75"/></svg></span>
+              </button>
+              <div class="faq-item__answer"><div class="faq-item__answer-inner"><span class="faq-item__divider" aria-hidden="true"></span><p>Maximum size depends on the technology and material. The configurator flags anything outside the build volume and suggests how to split larger models.</p></div></div>
+            </div>
+
+            <div class="faq-item" data-faq>
+              <button class="faq-item__q" type="button" aria-expanded="false">
+                <span class="faq-item__qtext">Who is Form Now for?</span>
+                <span class="faq-item__plus" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 7.25V16.75M7.25 12H16.75"/></svg></span>
+              </button>
+              <div class="faq-item__answer"><div class="faq-item__answer-inner"><span class="faq-item__divider" aria-hidden="true"></span><p>Engineers, designers, and makers who need professional parts fast — from one-off prototypes to small production runs — without owning a printer.</p></div></div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <!-- ============ 13-footer.html ============ -->
+    <footer class="footer" data-node-id="9489:40158" data-name="Section/Footer">
+      <div class="container footer__inner">
+
+        <div class="footer__content">
+          <div class="footer__left">
+            <div class="footer__brand">
+              <a class="footer__logo" href="#" aria-label="Form Now — home">
+                <span class="icon footer__mark" style="--icon:url('../assets/footer-formnow.svg'); width:48px; height:48px" aria-hidden="true"></span>
+                <span class="footer__wordmark">Form<br>NOW</span>
+              </a>
+              <span class="footer__rule"></span>
+              <span class="footer__by">
+                <span class="footer__by-label">By</span>
+                <span class="footer__formlabs" aria-label="formlabs">
+                  <span class="icon footer__fl-word" style="--icon:url('../assets/formlabs-word.svg'); width:81px; height:16px; --icon-size:contain" aria-hidden="true"></span>
+                  <span class="icon footer__fl-mark" style="--icon:url('../assets/formlabs-mark.svg'); width:22px; height:16px; --icon-size:contain" aria-hidden="true"></span>
+                </span>
+              </span>
+            </div>
+            <div class="footer__cta-wrap">
+              <button class="btn btn--accent btn--ms footer__cta" type="button">Contact Us</button>
+            </div>
+          </div>
+
+          <nav class="footer__cols" aria-label="Footer">
+            <div class="footer__col">
+              <a class="footer__link footer__link--head" href="#">Home</a>
+              <a class="footer__link" href="#">Upload</a>
+              <a class="footer__link" href="#">Materials</a>
+              <a class="footer__link" href="#">FAQ</a>
+              <a class="footer__link" href="#">API</a>
+            </div>
+            <div class="footer__col">
+              <a class="footer__link footer__link--head" href="#">Learn</a>
+              <a class="footer__link" href="#">All</a>
+              <a class="footer__link" href="#">Blog</a>
+              <a class="footer__link" href="#">Wiki</a>
+            </div>
+            <div class="footer__col">
+              <a class="footer__link footer__link--head" href="#">Company</a>
+              <a class="footer__link" href="#">Formlabs</a>
+              <a class="footer__link" href="#">Support</a>
+              <a class="footer__link" href="#">Contact</a>
+            </div>
+            <div class="footer__col">
+              <a class="footer__link footer__link--head" href="#">Social</a>
+              <a class="footer__link" href="#">Instagram</a>
+              <a class="footer__link" href="#">LinkedIn</a>
+              <a class="footer__link" href="#">Youtube</a>
+            </div>
+          </nav>
+        </div>
+
+        <div class="footer__bottom">
+          <p class="footer__copy">© 2026 Formlabs. Form Now is a service of Formlabs Inc.</p>
+          <div class="footer__legal">
+            <div class="footer__mode" role="group" aria-label="Theme">
+              <button class="footer__mode-btn" type="button" data-theme-option="system" aria-label="System theme" title="System">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12" rx="1.5"/><path d="M9 20.5h6M12 16.5v4"/></svg>
+              </button>
+              <button class="footer__mode-btn" type="button" data-theme-option="light" aria-label="Light theme" title="Light">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.1 5.1l1.4 1.4M17.5 17.5l1.4 1.4M18.9 5.1l-1.4 1.4M6.5 17.5l-1.4 1.4"/></svg>
+              </button>
+              <span class="footer__mode-div"></span>
+              <button class="footer__mode-btn" type="button" data-theme-option="dark" aria-label="Dark theme" title="Dark">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5Z"/></svg>
+              </button>
+            </div>
+            <a class="footer__link" href="#">Terms of Service</a>
+            <span class="footer__dot">·</span>
+            <a class="footer__link" href="#">Privacy Policy</a>
+            <span class="footer__dot">·</span>
+            <a class="footer__link" href="#">Cookies</a>
+          </div>
+        </div>
+
+      </div>
+    </footer>
+</body>
+</html>

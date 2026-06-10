@@ -1,0 +1,102 @@
+/* ===== Section/Materials — header + 6×3 material grid (15 cards) =====
+   Each card: DEFAULT (image + part•size, material, price) → SELECTED on hover/focus (desktop)
+   or .is-open via the + button (mobile): blurred image + dark scrim + name/description/specs. */
+.materials { background:var(--c-1); padding-block:72px; }
+.materials__container { display:flex; flex-direction:column; gap:var(--gap-head-content); }  /* 48 */
+
+.materials__grid { display:grid; grid-template-columns:repeat(6, minmax(0,1fr)); gap:12px; }
+
+/* footer (dots + arrows) — mobile carousel only */
+.materials__footer { display:none; }
+.materials__dots { display:flex; align-items:center; gap:var(--sp-2); }
+.materials__dot { width:8px; height:8px; border-radius:var(--radius-full); background:var(--c-5); }
+.materials__dot.is-active { background:var(--c-11); }
+.materials__arrows { display:flex; gap:var(--sp-2); }
+
+.mat-card {
+  position:relative; aspect-ratio:230 / 337; overflow:hidden;
+  background:var(--c-2); border:var(--border-1) solid var(--c-4); border-radius:24px;
+  transition:border-color .2s ease;
+}
+.mat-card__img {
+  position:absolute; inset:0; width:100%; height:100%; object-fit:contain;
+  transition:filter .3s ease, transform .3s ease;
+}
+
+/* Default overlays */
+.mat-card__price {
+  position:absolute; top:15px; right:15px; z-index:2;
+  background:var(--c-12); color:var(--c-1);
+  font-weight:700; font-size:14px; line-height:1.5; padding:2px 16px; border-radius:var(--radius-6);
+  box-shadow:0 0 4px var(--shadow-color); white-space:nowrap; transition:opacity .2s ease;
+}
+.mat-card__stack { position:absolute; left:15px; right:15px; bottom:15px; z-index:2; display:flex; flex-direction:column; gap:4px; transition:opacity .2s ease; }
+.mat-card__part { font-size:14px; line-height:1.5; color:var(--c-12); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.mat-card__part b { font-weight:700; }
+.mat-card__mat { font-size:14px; line-height:1.5; color:var(--c-11); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+
+/* + button (mobile only) toggles the selected overlay */
+.mat-card__plus {
+  position:absolute; top:14px; right:14px; z-index:5; display:none;
+  align-items:center; justify-content:center; width:32px; height:26px;
+  background:var(--c-2); border:var(--border-1) solid var(--c-6); border-radius:var(--radius-6); color:var(--c-12);
+  transition:color .2s ease, border-color .2s ease, background-color .2s ease;
+}
+.mat-card__plus svg { width:16px; height:16px; transition:transform .2s ease; }
+.mat-card__plus path { fill:none; stroke:currentColor; stroke-width:1.5; stroke-linecap:round; }
+
+/* Reveal overlay — THEMED scrim + text (light scrim/dark text on light, dark scrim/light text on dark) */
+.mat-card__scrim { position:absolute; inset:0; z-index:3; background:color-mix(in srgb, var(--c-1) 65%, transparent); opacity:0; pointer-events:none; transition:opacity .3s ease; }
+.mat-card__overlay {
+  position:absolute; inset:19px 18px; z-index:4; opacity:0; pointer-events:none; transition:opacity .3s ease;
+  display:flex; flex-direction:column; justify-content:space-between; gap:12px; color:var(--c-12);
+}
+.mat-card__top { display:flex; flex-direction:column; gap:8px; min-height:0; overflow:hidden; }
+.mat-card__name { font-weight:500; font-size:14px; line-height:1.5; color:var(--c-12); }
+.mat-card__desc { font-weight:400; font-size:12px; line-height:1.5; color:var(--c-12); }
+.mat-card__specs {
+  display:flex; flex-direction:column; gap:8px; padding-top:12px;
+  border-top:1px solid color-mix(in srgb, var(--c-12) 18%, transparent);
+  font-weight:400; font-size:12px; line-height:1.5; color:var(--c-11);
+}
+
+/* ---- Revealed state (.is-open) is MOBILE-ONLY (see the tap rules in the mobile @media block).
+   On desktop there is deliberately NO pinned/selected state — reveal is hover-only — so a click
+   can never leave a card stuck open. ---- */
+
+/* ---- Revealed state (desktop) — HOVER ONLY, so it always reverts to default on mouse-leave
+   (no :focus-within / click pin that could leave a card stuck open) ---- */
+@media (min-width:1024px) {
+  .mat-card:hover { border-color:var(--c-6); }
+  .mat-card:hover .mat-card__img { filter:blur(16px); transform:scale(1.12); }
+  .mat-card:hover .mat-card__scrim, .mat-card:hover .mat-card__overlay { opacity:1; }
+  .mat-card:hover .mat-card__price, .mat-card:hover .mat-card__stack { opacity:0; }
+}
+
+/* --- Mobile (Figma 9489:41499): horizontal carousel, price top-left + visible + button --- */
+@media (max-width:1023px) {
+  .materials { padding-block:48px; }
+  .materials__container { gap:var(--gap-content); }   /* tighter mobile rhythm (24) */
+  /* outer frame around the cards (border c-4, bg c-3, inner shadow) — same as the other mobile carousels */
+  .materials__viewport {
+    overflow-x:auto; overflow-y:hidden; scroll-snap-type:x mandatory; scroll-padding-inline:var(--sp-2);
+    background:var(--c-3); border:var(--border-1) solid var(--c-4); border-radius:32px; padding:var(--sp-2);
+    box-shadow:inset 0 0 4px var(--shadow-color); scrollbar-width:none;
+  }
+  .materials__viewport::-webkit-scrollbar { display:none; }
+  .materials__grid { display:flex; flex-direction:row; gap:var(--sp-2); width:max-content; }
+  .mat-card { flex:none; width:272px; aspect-ratio:272 / 372; scroll-snap-align:start; }
+  .mat-card__price { left:15px; right:auto; }
+  .mat-card__plus { display:inline-flex; }
+  .materials__footer { display:flex; align-items:center; justify-content:space-between; width:100%; }
+
+  /* tap → reveal (one card at a time, enforced in materials.js) */
+  .mat-card.is-open { border-color:var(--c-6); }
+  .mat-card.is-open .mat-card__img { filter:blur(16px); transform:scale(1.12); }
+  .mat-card.is-open .mat-card__scrim,
+  .mat-card.is-open .mat-card__overlay { opacity:1; }
+  .mat-card.is-open .mat-card__price,
+  .mat-card.is-open .mat-card__stack { opacity:0; }
+  .mat-card.is-open .mat-card__plus { color:var(--c-12); background:transparent; border-color:color-mix(in srgb, var(--c-12) 40%, transparent); }
+  .mat-card.is-open .mat-card__plus svg { transform:rotate(45deg); }   /* rotate only the icon, not the box */
+}

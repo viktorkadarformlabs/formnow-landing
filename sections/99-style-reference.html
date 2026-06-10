@@ -1,0 +1,75 @@
+<!-- DEV: Temporary foundations/style-reference. Sorts last so the real page renders in order. -->
+<main class="section">
+  <div class="container styleref">
+    <header>
+      <p class="t-eyebrow-sm u-uppercase u-faint">Token &amp; theme sanity check</p>
+      <h1 class="t-h1">Foundations</h1>
+      <p class="t-body u-muted u-measure">Colors, type and fonts below resolve from CSS variables and flip 1-to-1 between dark and light. Resize across 1024px to confirm the single breakpoint (container caps at 720 mobile / 1440 desktop).</p>
+    </header>
+
+    <section>
+      <h2 class="t-subsection styleref__h">Neutral ramp <span class="u-faint t-body-sm">--c-1 … --c-12</span></h2>
+      <div class="swatches">
+        <div class="sw"><i style="background:var(--c-1)"></i><b>c-1</b></div>
+        <div class="sw"><i style="background:var(--c-2)"></i><b>c-2</b></div>
+        <div class="sw"><i style="background:var(--c-3)"></i><b>c-3</b></div>
+        <div class="sw"><i style="background:var(--c-4)"></i><b>c-4</b></div>
+        <div class="sw"><i style="background:var(--c-5)"></i><b>c-5</b></div>
+        <div class="sw"><i style="background:var(--c-6)"></i><b>c-6</b></div>
+        <div class="sw"><i style="background:var(--c-7)"></i><b>c-7</b></div>
+        <div class="sw"><i style="background:var(--c-8)"></i><b>c-8</b></div>
+        <div class="sw"><i style="background:var(--c-9)"></i><b>c-9</b></div>
+        <div class="sw"><i style="background:var(--c-10)"></i><b>c-10</b></div>
+        <div class="sw"><i style="background:var(--c-11)"></i><b>c-11</b></div>
+        <div class="sw"><i style="background:var(--c-12)"></i><b>c-12</b></div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="t-subsection styleref__h">Accent ramp <span class="u-faint t-body-sm">--acc-1 … --acc-4</span></h2>
+      <div class="swatches swatches--acc">
+        <div class="sw"><i style="background:var(--acc-1)"></i><b>acc-1</b></div>
+        <div class="sw"><i style="background:var(--acc-2)"></i><b>acc-2</b></div>
+        <div class="sw"><i style="background:var(--acc-3)"></i><b>acc-3*</b></div>
+        <div class="sw"><i style="background:var(--acc-4)"></i><b>acc-4</b></div>
+      </div>
+      <p class="t-body-sm u-faint">*acc-3 provisional — not yet referenced by a section.</p>
+    </section>
+
+    <section>
+      <h2 class="t-subsection styleref__h">Type scale</h2>
+      <div class="typeset">
+        <p class="t-hero">Hero — Midnight Sans 48/58</p>
+        <p class="t-h1">Main Heading — Supreme Variable 48</p>
+        <p class="t-subheading">Subheading — SV 32</p>
+        <p class="t-section">Section Heading — SV 28</p>
+        <p class="t-subsection">Subsection — SV 24</p>
+        <p class="t-subsub">Sub-subsection — SV 20</p>
+        <p class="t-minor">Minor Heading — SV 16</p>
+        <p class="t-body">Body Standard — SV 16. The quick brown fox jumps over the lazy dog.</p>
+        <p class="t-body-md u-muted">Body Medium — SV 14. The quick brown fox jumps over the lazy dog.</p>
+        <p class="t-eyebrow-sm u-uppercase u-faint">Eyebrow Small — SV 12</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="t-subsection styleref__h">Buttons — type × size</h2>
+
+      <p class="t-eyebrow-sm u-uppercase u-faint">MS Button · Midnight Sans · uppercase — standard (36) &amp; small (26)</p>
+      <div class="btnrow">
+        <button class="btn btn--accent btn--ms">Upload Now</button>
+        <button class="btn btn--outline btn--ms">Get a Quote</button>
+        <button class="btn btn--sm btn--accent btn--ms">Add to Cart</button>
+        <button class="btn btn--sm btn--outline btn--ms">Login</button>
+      </div>
+
+      <p class="t-eyebrow-sm u-uppercase u-faint" style="margin-top:var(--sp-4)">SV Button · Supreme Variable — standard (36) &amp; small (26)</p>
+      <div class="btnrow">
+        <button class="btn btn--outline btn--sv">Try Part</button>
+        <button class="btn btn--accent btn--sv">Continue</button>
+        <button class="btn btn--sm btn--outline btn--sv">Learn more</button>
+        <button class="btn btn--sm btn--outline btn--sv" disabled>Disabled</button>
+      </div>
+    </section>
+  </div>
+</main>

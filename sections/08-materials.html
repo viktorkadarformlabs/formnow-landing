@@ -1,0 +1,168 @@
+<section class="section materials" data-node-id="9489:39823" data-name="Section/Materials">
+  <div class="container materials__container">
+
+    <div class="section-head">
+      <div class="section-head__text">
+        <h2 class="t-h1 section-head__title">Premium Materials, Unbeatable Prices.</h2>
+        <p class="t-subsection u-muted section-head__sub">Industrial SLA and SLS materials, now accessible to anyone.</p>
+      </div>
+      <div class="section-head__actions">
+        <button class="btn btn--accent btn--ms" type="button">Upload Your Part</button>
+      </div>
+    </div>
+
+    <!-- DEV: 6×3 material grid. Each card has a DEFAULT state (example part • size, material, price) and a
+         SELECTED state revealed on hover (desktop) or by tapping the + button (mobile): blurred image +
+         dark scrim + material name, description and key specs. Hover border = c-6. -->
+    <div class="materials__viewport">
+      <div class="materials__grid" id="materials-row">
+
+      <article class="mat-card" data-mat tabindex="0">
+        <img class="mat-card__img" src="../assets/material-1.png" alt="" />
+        <span class="mat-card__price">$15.49</span>
+        <button class="mat-card__plus" type="button" aria-label="Show material details"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3.5V12.5M3.5 8H12.5"/></svg></button>
+        <div class="mat-card__stack"><p class="mat-card__part"><b>Heat Shield</b> • 3.2in</p><p class="mat-card__mat">SLA • Formlabs Grey V5</p></div>
+        <div class="mat-card__scrim"></div>
+        <div class="mat-card__overlay"><div class="mat-card__top"><p class="mat-card__name">Grey Resin V5</p><p class="mat-card__desc">Stiff and strong matte resin with fast printing, high accuracy, and fine details. Ideal for prototyping and general-purpose applications.</p></div><div class="mat-card__specs"><p>Tensile Strength: 65 MPa</p><p>Elongation at Break: 6%</p><p>Flexural Modulus: 2.8 GPa</p></div></div>
+      </article>
+
+      <article class="mat-card" data-mat tabindex="0">
+        <img class="mat-card__img" src="../assets/material-2.png" alt="" />
+        <span class="mat-card__price">$16.93</span>
+        <button class="mat-card__plus" type="button" aria-label="Show material details"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3.5V12.5M3.5 8H12.5"/></svg></button>
+        <div class="mat-card__stack"><p class="mat-card__part"><b>Knob</b> • 2.4in</p><p class="mat-card__mat">SLA • Formlabs Black V5</p></div>
+        <div class="mat-card__scrim"></div>
+        <div class="mat-card__overlay"><div class="mat-card__top"><p class="mat-card__name">Black Resin V5</p><p class="mat-card__desc">Stiff and strong matte resin with high strength, accuracy, and fine details. Perfect for functional prototypes and end-use parts.</p></div><div class="mat-card__specs"><p>Tensile Strength: 65 MPa</p><p>Elongation at Break: 6%</p><p>Flexural Modulus: 2.8 GPa</p></div></div>
+      </article>
+
+      <article class="mat-card" data-mat tabindex="0">
+        <img class="mat-card__img" src="../assets/material-3.png" alt="" />
+        <span class="mat-card__price">$15.61</span>
+        <button class="mat-card__plus" type="button" aria-label="Show material details"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3.5V12.5M3.5 8H12.5"/></svg></button>
+        <div class="mat-card__stack"><p class="mat-card__part"><b>Architectural Model</b> • 2.9in</p><p class="mat-card__mat">SLA • Formlabs White V5</p></div>
+        <div class="mat-card__scrim"></div>
+        <div class="mat-card__overlay"><div class="mat-card__top"><p class="mat-card__name">White Resin V5</p><p class="mat-card__desc">Stiff and strong matte resin with high strength, accuracy, and fine details. Excellent for prototyping and visual models.</p></div><div class="mat-card__specs"><p>Tensile Strength: 65 MPa</p><p>Elongation at Break: 6%</p><p>Flexural Modulus: 2.8 GPa</p></div></div>
+      </article>
+
+      <article class="mat-card" data-mat tabindex="0">
+        <img class="mat-card__img" src="../assets/material-4.png" alt="" />
+        <span class="mat-card__price">$15.04</span>
+        <button class="mat-card__plus" type="button" aria-label="Show material details"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3.5V12.5M3.5 8H12.5"/></svg></button>
+        <div class="mat-card__stack"><p class="mat-card__part"><b>Millifluidics</b> • 2.4in</p><p class="mat-card__mat">SLA • Formlabs Clear V5</p></div>
+        <div class="mat-card__scrim"></div>
+        <div class="mat-card__overlay"><div class="mat-card__top"><p class="mat-card__name">Clear Resin V5</p><p class="mat-card__desc">Exceptionally clear and color-neutral 3D printing resin, offering fast print speed, high accuracy, transparency, strong mechanical properties.</p></div><div class="mat-card__specs"><p>Optical Transmittance: 85%</p><p>Flexural Strength: 105 MPa</p><p>Elongation at Break: 8%</p></div></div>
+      </article>
+
+      <article class="mat-card" data-mat tabindex="0">
+        <img class="mat-card__img" src="../assets/material-5.png" alt="" />
+        <span class="mat-card__price">$51.02</span>
+        <button class="mat-card__plus" type="button" aria-label="Show material details"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3.5V12.5M3.5 8H12.5"/></svg></button>
+        <div class="mat-card__stack"><p class="mat-card__part"><b>Snap Fit Box</b> • 3.4in</p><p class="mat-card__mat">SLA • Formlabs Color V5</p></div>
+        <div class="mat-card__scrim"></div>
+        <div class="mat-card__overlay"><div class="mat-card__top"><p class="mat-card__name">Color Resin V5</p><p class="mat-card__desc">Stiff and strong matte resin with custom colors, high strength, and fine details. Perfect for colorful prototypes and models.</p></div><div class="mat-card__specs"><p>Tensile Strength: 65 MPa</p><p>Elongation at Break: 6%</p><p>Flexural Modulus: 2.8 GPa</p></div></div>
+      </article>
+
+      <article class="mat-card" data-mat tabindex="0">
+        <img class="mat-card__img" src="../assets/material-6.png" alt="" />
+        <span class="mat-card__price">$35.93</span>
+        <button class="mat-card__plus" type="button" aria-label="Show material details"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3.5V12.5M3.5 8H12.5"/></svg></button>
+        <div class="mat-card__stack"><p class="mat-card__part"><b>Thermo Mold</b> • 3.0in</p><p class="mat-card__mat">SLA • Formlabs Rigid 10K</p></div>
+        <div class="mat-card__scrim"></div>
+        <div class="mat-card__overlay"><div class="mat-card__top"><p class="mat-card__name">Rigid 10K Resin</p><p class="mat-card__desc">Glass-filled resin with exceptional stiffness and heat resistance, simulating high-performance thermoplastics for functional testing.</p></div><div class="mat-card__specs"><p>Flexural Modulus: 10 GPa</p><p>Heat Deflection: 218°C @ 0.45 MPa</p><p>Tensile Strength: 78 MPa</p></div></div>
+      </article>
+
+      <article class="mat-card" data-mat tabindex="0">
+        <img class="mat-card__img" src="../assets/material-7.png" alt="" />
+        <span class="mat-card__price">$12.70</span>
+        <button class="mat-card__plus" type="button" aria-label="Show material details"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3.5V12.5M3.5 8H12.5"/></svg></button>
+        <div class="mat-card__stack"><p class="mat-card__part"><b>Buckle</b> • 1.7in</p><p class="mat-card__mat">SLA • Formlabs Tough 1500 V2</p></div>
+        <div class="mat-card__scrim"></div>
+        <div class="mat-card__overlay"><div class="mat-card__top"><p class="mat-card__name">Tough 1500 V2 Resin</p><p class="mat-card__desc">A resilient material with strength, stiffness, and toughness comparable to polypropylene (PP), offering exceptional resistance to fractures.</p></div><div class="mat-card__specs"><p>Tensile Strength: 34 MPa</p><p>Elongation at Break: 155%</p><p>Flexural Strength: 41 MPa</p></div></div>
+      </article>
+
+      <article class="mat-card" data-mat tabindex="0">
+        <img class="mat-card__img" src="../assets/material-8.png" alt="" />
+        <span class="mat-card__price">$26.40</span>
+        <button class="mat-card__plus" type="button" aria-label="Show material details"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3.5V12.5M3.5 8H12.5"/></svg></button>
+        <div class="mat-card__stack"><p class="mat-card__part"><b>Dumbbell Cover</b> • 3.7in</p><p class="mat-card__mat">SLA • Formlabs Tough 1000</p></div>
+        <div class="mat-card__scrim"></div>
+        <div class="mat-card__overlay"><div class="mat-card__top"><p class="mat-card__name">Tough 1000 Resin</p><p class="mat-card__desc">Ductile, impact-resistant material with strength and toughness comparable to HDPE, designed for exceptional wear and fatigue resistance.</p></div><div class="mat-card__specs"><p>Elongation at Break: 180%</p><p>Flexural Strength: 29 MPa</p><p>Tensile Modulus: 0.931 GPa</p></div></div>
+      </article>
+
+      <article class="mat-card" data-mat tabindex="0">
+        <img class="mat-card__img" src="../assets/material-9.png" alt="" />
+        <span class="mat-card__price">$14.09</span>
+        <button class="mat-card__plus" type="button" aria-label="Show material details"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3.5V12.5M3.5 8H12.5"/></svg></button>
+        <div class="mat-card__stack"><p class="mat-card__part"><b>Cable Relief</b> • 1.7in</p><p class="mat-card__mat">SLA • Formlabs Elastic 50A V2</p></div>
+        <div class="mat-card__scrim"></div>
+        <div class="mat-card__overlay"><div class="mat-card__top"><p class="mat-card__name">Elastic 50A Resin V2</p><p class="mat-card__desc">Soft, elastomeric resin that mimics silicone. Ideal for grips, cushioning, gaskets, and wearable prototypes.</p></div><div class="mat-card__specs"><p>Shore Hardness: 50A</p><p>Elongation at Break: 160%</p><p>Tear Strength: 6.8 kN/m</p></div></div>
+      </article>
+
+      <article class="mat-card" data-mat tabindex="0">
+        <img class="mat-card__img" src="../assets/material-10.png" alt="" />
+        <span class="mat-card__price">$15.10</span>
+        <button class="mat-card__plus" type="button" aria-label="Show material details"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3.5V12.5M3.5 8H12.5"/></svg></button>
+        <div class="mat-card__stack"><p class="mat-card__part"><b>Handle Grip</b> • 2.8in</p><p class="mat-card__mat">SLA • Formlabs Flexible 80A</p></div>
+        <div class="mat-card__scrim"></div>
+        <div class="mat-card__overlay"><div class="mat-card__top"><p class="mat-card__name">Flexible 80A Resin</p><p class="mat-card__desc">Hard rubber-like elastomeric resin with wear resistance. Perfect for parts requiring flexibility and durability.</p></div><div class="mat-card__specs"><p>Shore Hardness: 80A</p><p>Elongation at Break: 100%</p><p>Tear Strength: 12 kN/m</p></div></div>
+      </article>
+
+      <article class="mat-card" data-mat tabindex="0">
+        <img class="mat-card__img" src="../assets/material-11.png" alt="" />
+        <span class="mat-card__price">$39.76</span>
+        <button class="mat-card__plus" type="button" aria-label="Show material details"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3.5V12.5M3.5 8H12.5"/></svg></button>
+        <div class="mat-card__stack"><p class="mat-card__part"><b>Ski Goggle Frame</b> • 6.9in</p><p class="mat-card__mat">SLS • Formlabs Nylon 11</p></div>
+        <div class="mat-card__scrim"></div>
+        <div class="mat-card__overlay"><div class="mat-card__top"><p class="mat-card__name">Nylon 11 Powder</p><p class="mat-card__desc">Strong, wear-resistant, and impact-resistant SLS powder with UV resistance. Ideal for functional prototypes and end-use parts.</p></div><div class="mat-card__specs"><p>Tensile Strength: 48 MPa</p><p>Elongation at Break: 26%</p><p>Flexural Modulus: 1.5 GPa</p></div></div>
+      </article>
+
+      <article class="mat-card" data-mat tabindex="0">
+        <img class="mat-card__img" src="../assets/material-12.png" alt="" />
+        <span class="mat-card__price">$18.44</span>
+        <button class="mat-card__plus" type="button" aria-label="Show material details"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3.5V12.5M3.5 8H12.5"/></svg></button>
+        <div class="mat-card__stack"><p class="mat-card__part"><b>Bike Pedal</b> • 3.5in</p><p class="mat-card__mat">SLS • Formlabs Nylon 12</p></div>
+        <div class="mat-card__scrim"></div>
+        <div class="mat-card__overlay"><div class="mat-card__top"><p class="mat-card__name">Nylon 12 Powder</p><p class="mat-card__desc">Robust SLS powder with high strength, wear resistance, and UV stability. Perfect for functional parts and assemblies.</p></div><div class="mat-card__specs"><p>Tensile Strength: 50 MPa</p><p>Elongation at Break: 18%</p><p>Flexural Modulus: 1.8 GPa</p></div></div>
+      </article>
+
+      <article class="mat-card" data-mat tabindex="0">
+        <img class="mat-card__img" src="../assets/material-13.png" alt="" />
+        <span class="mat-card__price">$42.24</span>
+        <button class="mat-card__plus" type="button" aria-label="Show material details"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3.5V12.5M3.5 8H12.5"/></svg></button>
+        <div class="mat-card__stack"><p class="mat-card__part"><b>Bike Stem</b> • 5.5in</p><p class="mat-card__mat">SLS • Formlabs Nylon 12 GF</p></div>
+        <div class="mat-card__scrim"></div>
+        <div class="mat-card__overlay"><div class="mat-card__top"><p class="mat-card__name">Nylon 12 GF Powder</p><p class="mat-card__desc">Glass-filled nylon powder with exceptional stiffness, heat resistance, and low creep. Ideal for structural parts.</p></div><div class="mat-card__specs"><p>Flexural Modulus: 3.5 GPa</p><p>Heat Deflection: 172°C @ 0.45 MPa</p><p>Tensile Strength: 52 MPa</p></div></div>
+      </article>
+
+      <article class="mat-card" data-mat tabindex="0">
+        <img class="mat-card__img" src="../assets/material-14.png" alt="" />
+        <span class="mat-card__price">$16.10</span>
+        <button class="mat-card__plus" type="button" aria-label="Show material details"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3.5V12.5M3.5 8H12.5"/></svg></button>
+        <div class="mat-card__stack"><p class="mat-card__part"><b>Watch Strap</b> • 10.3in</p><p class="mat-card__mat">SLS • Formlabs TPU 90A</p></div>
+        <div class="mat-card__scrim"></div>
+        <div class="mat-card__overlay"><div class="mat-card__top"><p class="mat-card__name">TPU 90A Powder</p><p class="mat-card__desc">Elastomeric SLS powder with impact and tear resistance. Perfect for soft-touch parts, living hinges, and flexible assemblies.</p></div><div class="mat-card__specs"><p>Shore Hardness: 90A</p><p>Elongation at Break: 136%</p><p>Tear Strength: 51 kN/m</p></div></div>
+      </article>
+
+      <article class="mat-card" data-mat tabindex="0">
+        <img class="mat-card__img" src="../assets/material-15.png" alt="" />
+        <span class="mat-card__price">$50.37</span>
+        <button class="mat-card__plus" type="button" aria-label="Show material details"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3.5V12.5M3.5 8H12.5"/></svg></button>
+        <div class="mat-card__stack"><p class="mat-card__part"><b>Drone Body</b> • 5.9in</p><p class="mat-card__mat">SLS • Formlabs Nylon 12 White</p></div>
+        <div class="mat-card__scrim"></div>
+        <div class="mat-card__overlay"><div class="mat-card__top"><p class="mat-card__name">Nylon 12 White Powder</p><p class="mat-card__desc">Robust white SLS powder with high strength, wear resistance, and UV stability. Ideal for visible functional parts.</p></div><div class="mat-card__specs"><p>Tensile Strength: 50 MPa</p><p>Elongation at Break: 18%</p><p>Flexural Modulus: 1.8 GPa</p></div></div>
+      </article>
+
+      </div>
+    </div>
+
+    <!-- Mobile only: the grid becomes a horizontal carousel (Figma 9489:41499) -->
+    <div class="materials__footer">
+      <div class="materials__dots" data-carousel-dots="materials-row"></div>
+      <div class="materials__arrows">
+        <button class="carousel-arrow" type="button" aria-label="Previous" data-carousel-prev="materials-row" disabled><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 4 L6 8 L10 12"/></svg></button>
+        <button class="carousel-arrow" type="button" aria-label="Next" data-carousel-next="materials-row"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 4 L10 8 L6 12"/></svg></button>
+      </div>
+    </div>
+
+  </div>
+</section>

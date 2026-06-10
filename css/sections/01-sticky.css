@@ -1,0 +1,119 @@
+/* ===== Section/Sticky — main nav + secondary upload bar ===== */
+.sticky-header { position:sticky; top:0; z-index:50; }
+
+/* --- Main navigation bar --- */
+/* relative + higher z-index + opaque bg = it covers the upload bar when that's tucked behind it */
+.navbar { position:relative; z-index:2; background:var(--c-2); border-bottom:var(--border-1) solid var(--c-4); }
+.navbar__inner {
+  position:relative; display:flex; align-items:center; justify-content:space-between;
+  width:100%; padding:10px var(--pad-mobile);
+}
+@media (min-width:1024px) { .navbar__inner { padding:10px var(--pad-desktop); } }
+
+.navbar__logo { display:flex; align-items:center; gap:var(--sp-1); color:var(--c-12); }
+.navbar__mark { width:36px; height:36px; }
+.navbar__wordmark {
+  font-family:var(--font-display); font-weight:600; font-size:12px; line-height:1.05;
+  text-transform:uppercase; color:var(--c-12);
+}
+
+.navbar__links {
+  position:absolute; left:50%; transform:translateX(-50%);
+  display:flex; align-items:center; gap:var(--sp-6);
+}
+.navbar__links a {
+  font-weight:400; font-size:16px; line-height:1.5; color:var(--c-12);
+  padding-block:var(--sp-2); transition:color .15s ease;
+}
+.navbar__links a:hover { color:var(--c-11); }
+
+.navbar__right { display:flex; align-items:center; gap:var(--sp-3); }
+
+.navbar__cart { position:relative; display:inline-flex; align-items:center; justify-content:center; width:26px; height:26px; color:var(--c-12); }
+.navbar__badge {
+  position:absolute; top:-4px; left:14px;
+  min-width:16px; height:16px; padding:0 3px; border-radius:var(--radius-full);
+  background:var(--acc-4); color:var(--on-accent);
+  font-weight:600; font-size:10px; line-height:16px; text-align:center;
+}
+/* Login = outline button tinted with the accent (per Figma) */
+.navbar__login { border-color:var(--acc-4); color:var(--acc-4); }
+.navbar__login:hover { background:color-mix(in srgb, var(--acc-4) 12%, transparent); }
+
+/* hamburger — desktop hidden */
+.navbar__menu { display:none; flex-direction:column; gap:5px; width:26px; height:26px; align-items:center; justify-content:center; }
+.navbar__menu span { display:block; width:18px; height:2px; background:var(--c-12); border-radius:2px; }
+
+/* --- Secondary sticky upload bar ---
+   Hidden by default; revealed once the hero's upload field scrolls out of view
+   (JS toggles .is-upload-visible on .sticky-header — see js/sticky.js).
+   Apple-style reveal: the bar lives just under the navbar at FULL opacity and slides
+   straight down out from behind it. Tucked state translates it up behind the (opaque,
+   higher z-index) navbar — the overflow above the navbar runs off the top of the
+   viewport, so nothing peeks. No opacity fade, no layout shift. */
+.upload-bar {
+  position:absolute; left:0; right:0; top:100%; z-index:1;
+  transform:translateY(-100%);
+  transition:transform .55s cubic-bezier(.22,1,.36,1);
+  will-change:transform;
+}
+.upload-bar__panel {
+  background:var(--acc-1);
+  -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
+  border-bottom:var(--border-1) solid color-mix(in srgb, var(--c-12) 8%, transparent);
+  display:flex; justify-content:center;
+  padding:var(--sp-2) var(--sp-4);
+}
+.sticky-header.is-upload-visible .upload-bar { transform:translateY(0); }
+.sticky-header:not(.is-upload-visible) .upload-bar { pointer-events:none; }
+@media (prefers-reduced-motion: reduce) {
+  .upload-bar { transition:none; }
+}
+.upload-bar__inner {
+  position:relative; color:var(--acc-3); --dash-radius:12px;
+  display:flex; align-items:center; gap:var(--sp-6);
+  width:100%; max-width:var(--content-max);
+  border-radius:12px;
+  padding:7px 7px 7px 12px;
+  cursor:pointer;
+}
+/* Hover: only the dashed line color changes (→ accent 4, themes 1:1) */
+.upload-bar__inner:hover { --dash-color:var(--acc-4); }
+.upload-bar__left { display:flex; align-items:center; gap:var(--sp-4); }
+.upload-bar__files { display:flex; align-items:center; gap:var(--sp-2); color:var(--acc-4); }
+.upload-bar__drag { font-weight:500; font-size:16px; line-height:1.5; }
+.upload-bar__secure { display:flex; align-items:center; gap:var(--sp-1); color:var(--acc-4); font-weight:400; font-size:14px; line-height:1.5; }
+/* 1024–1280px: the secure note + lock doesn't fit in the bar — hide it */
+@media (min-width:1024px) and (max-width:1279px) { .upload-bar__secure { display:none; } }
+.upload-bar__right { display:flex; flex:1 0 0; min-width:0; align-items:center; justify-content:flex-end; gap:var(--sp-4); }
+.upload-bar__eta { display:flex; align-items:center; gap:var(--sp-1); color:var(--c-12); font-size:14px; line-height:1.5; white-space:nowrap; }
+.upload-bar__eta b { width:5px; text-align:center; }
+.upload-bar__types { color:var(--acc-4); font-weight:500; font-size:14px; line-height:1.5; text-transform:uppercase; white-space:nowrap; }
+
+/* --- First-load intro: nav slides down from the top after a 2s delay ---
+   The navbar keeps its normal-flow space the whole time (transform only), so the hero/video never
+   shifts — the reserved space above the video reads as extra top padding until the nav arrives.
+   `both` holds the hidden (−100%) state through the 2s delay. Gated by .hero-intro on <html>
+   (set on a top-of-page load, removed by hero.js if the page is scrolled). */
+@keyframes nav-drop { from { transform:translateY(-100%); } to { transform:translateY(0); } }
+.hero-intro .navbar { animation:nav-drop .6s cubic-bezier(.22,1,.36,1) 1.5s both; }
+/* while the navbar is up, push the tucked secondary upload-bar fully off-screen so it can't peek
+   (less specific than the .is-upload-visible reveal, so the scroll reveal still wins) */
+.hero-intro .upload-bar { transform:translateY(-200%); }
+@media (prefers-reduced-motion: reduce) {
+  .hero-intro .navbar { animation:none; }
+  .hero-intro .upload-bar { transform:translateY(-100%); }
+}
+
+/* --- Mobile (<1024) — Figma 9489:41016 --- */
+@media (max-width:1023px) {
+  .navbar__links { display:none; }
+  .navbar__login { display:none; }          /* mobile right side = cart + hamburger only */
+  .navbar__menu { display:flex; }            /* DEV: hamburger opens a drawer (not in the mobile frame) */
+  /* Mobile upload bar = dashed in accent-3, just the ETA + a full-width Upload Now button */
+  .upload-bar__inner { color:var(--acc-3); flex-direction:column; gap:var(--sp-1_5); padding:8px; }
+  .upload-bar__left, .upload-bar__types { display:none; }
+  .upload-bar__right { width:100%; flex:1 1 auto; flex-direction:column; gap:var(--sp-1_5); justify-content:center; }
+  .upload-bar__eta { justify-content:center; text-align:center; }
+  .upload-bar__right .btn { width:100%; }
+}

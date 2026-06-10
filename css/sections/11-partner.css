@@ -1,0 +1,34 @@
+/* ===== Section/Partner — header + highlight (media left, text right) ===== */
+.partner { background:var(--c-2); padding-block:72px; }
+.partner__container { display:flex; flex-direction:column; gap:var(--gap-head-content); }  /* 48 */
+
+.partner__highlight {
+  display:flex; gap:var(--sp-2); height:512px; overflow:hidden;
+  background:var(--c-3); border:var(--border-1) solid var(--c-4); border-radius:24px; padding:var(--sp-2);
+}
+.partner__media {
+  position:relative; flex:1 1 0; min-width:0; height:100%;
+  border:var(--border-1) solid var(--c-3); border-radius:var(--radius-2xl); overflow:hidden; box-shadow:0 0 4px var(--shadow-color);
+}
+.partner__media img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+
+.partner__text { flex:none; width:480px; display:flex; flex-direction:column; justify-content:flex-end; gap:40px; padding:var(--sp-4); }
+.partner__top { flex:1 1 0; min-height:0; display:flex; flex-direction:column; gap:var(--sp-6); }
+.partner__title { font-weight:500; font-size:32px; line-height:1.2; letter-spacing:-0.04em; color:var(--c-12); text-wrap:balance; }
+.partner__body { font-weight:400; font-size:16px; line-height:1.5; color:var(--c-11); }
+
+/* "Start" = inverted fill (c-12 bg / c-1 text) with a share icon */
+.partner__cta { align-self:flex-end; gap:var(--sp-1); padding-right:10px; background:var(--c-12); color:var(--c-1); }
+.partner__cta:hover { filter:brightness(0.94); }
+.partner__share { width:24px; height:24px; flex:none; }   /* 24px placeholder; glyph renders ~19.5px */
+.partner__share path { fill:currentColor; }   /* Figma share glyph is a filled outline */
+
+/* --- Mobile --- DEV: reconcile with Figma mobile partner 9489:41807 --- */
+@media (max-width:1023px) {
+  .partner { padding-block:48px; }
+  .partner__highlight { flex-direction:column; height:auto; }
+  .partner__media { width:100%; aspect-ratio:3/2; height:auto; flex:none; }   /* Figma 300/200 */
+  .partner__text { width:100%; gap:var(--sp-6); padding:var(--sp-4); }
+  .partner__top { flex:none; }              /* fix flex-basis:0 collapse in the column */
+  .partner__title { font-size:24px; }       /* SV Mobile Section Heading */
+}

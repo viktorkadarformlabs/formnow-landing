@@ -1,0 +1,36 @@
+/* ===== Section/Companies — constantly moving logo conveyor ===== */
+.companies { background:var(--c-1); padding:0 var(--pad-mobile) var(--sp-6); }
+@media (min-width:1024px) { .companies { padding:0 var(--pad-desktop) var(--sp-6); } }
+
+.companies__block {
+  background:var(--c-1); max-width:var(--content-max); margin-inline:auto; width:100%;
+  padding-block:var(--sp-4); overflow:hidden;
+}
+.companies__viewport {
+  position:relative; height:72px; overflow:hidden;
+  /* edge fade via alpha mask — fades logos to transparent (no bg color needed, theme-independent) */
+  -webkit-mask:linear-gradient(to right, transparent 0, #000 144px, #000 calc(100% - 144px), transparent 100%);
+          mask:linear-gradient(to right, transparent 0, #000 144px, #000 calc(100% - 144px), transparent 100%);
+}
+
+/* The track holds the logo set twice (original + JS clone) and scrolls -50% for a seamless loop */
+.companies__track {
+  display:flex; align-items:center; gap:var(--sp-6);
+  height:72px; width:max-content;
+  animation:companies-marquee 50s linear infinite;
+}
+.companies__track:hover { animation-play-state:paused; }
+@keyframes companies-marquee { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .companies__track { animation:none; } }
+
+.companies__cell {
+  flex:none; height:100%;
+  display:flex; align-items:center; justify-content:center;
+  padding:24px 32px;
+  -webkit-backdrop-filter:blur(18px); backdrop-filter:blur(18px);
+}
+/* logo wrapper: fixed Figma size; sub-images are absolutely placed via inline insets */
+.companies__logo { position:relative; flex:none; }
+.companies__logo img { position:absolute; inset:0; width:100%; height:100%; }
+.companies__logo > span { position:absolute; }
+.companies__logo > span img { position:absolute; inset:0; width:100%; height:100%; }

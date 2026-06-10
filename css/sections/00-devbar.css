@@ -1,0 +1,16 @@
+/* DEV: floating theme toggle (temporary, removed in Batch 5 when Footer toggle lands) */
+.devbar {
+  position:fixed; right:16px; bottom:16px; z-index:1000;
+  display:flex; align-items:center; gap:var(--sp-2);
+  padding:var(--sp-1_5) var(--sp-2);
+  background:var(--c-2); border:var(--border-1) solid var(--c-4);
+  border-radius:var(--radius-full); box-shadow:var(--shadow-contrast);
+}
+.devbar__label { color:var(--c-10); padding-left:var(--sp-1_5); }
+.seg { display:inline-flex; gap:var(--sp-0_5); padding:var(--sp-0_5); background:var(--c-3); border-radius:var(--radius-full); }
+.seg__btn {
+  padding:var(--sp-1) var(--sp-3); border-radius:var(--radius-full);
+  font-weight:500; font-size:12px; line-height:1.4; color:var(--c-10);
+  transition:background-color .15s ease, color .15s ease;
+}
+.seg__btn.is-active { background:var(--c-1); color:var(--c-12); box-shadow:var(--shadow-xs); }

@@ -1,0 +1,41 @@
+/* ===== Section/FAQ — heading + 2-column accordion ===== */
+.faq { background:var(--c-2); padding-block:72px; }
+.faq__container { display:flex; flex-direction:column; gap:var(--gap-head-content); }  /* 48 */
+
+/* Two INDEPENDENT columns (separate flex stacks) so opening an item only pushes items below it
+   in the SAME column — the other column is unaffected. Col 1 = items 1–4, col 2 = 5–8, so on
+   mobile they stack back into 1–8 reading order. */
+.faq__cols { display:flex; gap:16px; align-items:flex-start; }
+.faq__col { flex:1 1 0; min-width:0; display:flex; flex-direction:column; gap:14px; }
+
+.faq-item { background:var(--c-3); border:var(--border-1) solid var(--c-4); border-radius:12px; overflow:hidden; }
+.faq-item__q {
+  width:100%; display:flex; align-items:center; gap:var(--sp-2);
+  padding:20px 20px 20px 24px; text-align:left; cursor:pointer;
+}
+.faq-item__qtext { flex:1 0 0; min-width:0; font-weight:500; font-size:20px; line-height:1.2; letter-spacing:-0.04em; color:var(--c-12); }
+.faq-item__plus {
+  flex:none; display:flex; align-items:center; justify-content:center; width:36px; height:36px;
+  background:var(--c-2); border:var(--border-1) solid var(--c-4); border-radius:var(--radius-md); color:var(--c-12);
+}
+/* svg 24px so the plus glyph (path spans 9.5 of the 24 viewBox) renders ~9.5px — matches Figma 9489:39295 */
+.faq-item__plus svg { width:24px; height:24px; transition:transform .2s ease; }
+.faq-item__plus path { fill:none; stroke:currentColor; stroke-width:1.5; stroke-linecap:round; }
+.faq-item.is-open .faq-item__plus svg { transform:rotate(45deg); }   /* rotate only the icon, not the box */
+
+/* answer reveal (grid 0fr → 1fr for a smooth height transition) */
+.faq-item__answer { display:grid; grid-template-rows:0fr; transition:grid-template-rows .3s ease; }
+.faq-item.is-open .faq-item__answer { grid-template-rows:1fr; }
+.faq-item__answer-inner { overflow:hidden; min-height:0; }
+/* divider between the question and answer — only visible when open (Figma 9489:39292), c-5 line */
+.faq-item__divider { display:block; height:1px; background:var(--c-5); margin:0 20px 20px 24px; }
+.faq-item__answer-inner p { padding:0 20px 20px 24px; font-weight:400; font-size:16px; line-height:1.5; color:var(--c-11); }
+
+@media (prefers-reduced-motion: reduce) { .faq-item__answer { transition:none; } }
+
+/* --- Mobile --- DEV: reconcile with Figma mobile FAQ 9489:41833 --- */
+@media (max-width:1023px) {
+  .faq { padding-block:48px; }
+  .faq__cols { flex-direction:column; gap:14px; }   /* single column → items stack 1–8 in order */
+  .faq-item__qtext { font-size:18px; }
+}

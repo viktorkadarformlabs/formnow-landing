@@ -1,0 +1,72 @@
+/* ===== Section/Speed — header + product carousel ===== */
+.speed { background:var(--c-1); padding-block:72px; }
+.speed__container { display:flex; flex-direction:column; gap:var(--gap-head-content); }  /* 48 */
+
+.speed__header { display:flex; align-items:flex-end; gap:var(--gap-actions); width:100%; }
+.speed__heading-wrap { flex:1 1 0; min-width:0; display:flex; flex-direction:column; gap:var(--gap-head); } /* 16 */
+.speed__heading { color:var(--c-12); text-wrap:balance; }
+.speed__sub { max-width:var(--paragraph-max); text-wrap:balance; }
+.speed__actions { flex:none; }
+
+/* Carousel */
+.speed__carousel { display:flex; flex-direction:column; gap:var(--gap-content); }  /* 24 */
+.speed__viewport {
+  background:var(--c-3); border:var(--border-1) solid var(--c-4); border-radius:24px;
+  overflow-x:auto; overflow-y:hidden; scroll-snap-type:x mandatory;
+  /* keep snap from eating the row's 8px left padding (it would otherwise align the first
+     card flush to the edge and auto-scroll past the gap on load) */
+  scroll-padding-inline:var(--sp-2);
+  box-shadow:inset 0 0 4px var(--shadow-color);
+  scrollbar-width:none;
+}
+.speed__viewport::-webkit-scrollbar { display:none; }
+/* Padding on the scrollable content (not the scroll container) so both edges keep an even
+   8px gap — a scroll container's padding-inline-end collapses at the scroll end in most browsers. */
+.speed__row { display:flex; gap:var(--sp-2); padding:var(--sp-2); width:max-content; }
+
+/* Reusable product card */
+.card-product {
+  flex:none; width:296px; scroll-snap-align:start;
+  display:flex; flex-direction:column; gap:var(--sp-2);
+  background:var(--c-1); border:var(--border-1) solid var(--c-4); border-radius:var(--radius-2xl);
+  padding:var(--sp-2); filter:drop-shadow(0 0 2px var(--shadow-color));
+}
+.card-product__media { width:100%; aspect-ratio:1/1; border-radius:var(--radius-md); overflow:hidden; }
+.card-product__media img { width:100%; height:100%; object-fit:cover; }
+.card-product__body { display:flex; flex-direction:column; gap:var(--sp-1); padding:0 var(--sp-2) var(--sp-2); }
+.card-product__shipped { display:flex; align-items:center; gap:var(--sp-1); padding-bottom:var(--sp-2); }
+.card-product__shipped > span:first-child { flex:1 0 0; font-weight:500; font-size:16px; line-height:1.5; color:var(--c-12); }
+.card-product__badge { background:var(--c-12); color:var(--c-1); font-weight:600; font-size:16px; line-height:1.5; border-radius:6px; padding:0 6px; white-space:nowrap; }
+.card-product__divider { height:1px; width:100%; background:var(--c-5); }
+.card-product__row { display:flex; align-items:center; gap:var(--sp-1); padding-block:2px; font-size:14px; line-height:1.5; }
+.card-product__name { flex:1 0 0; min-width:0; color:var(--c-11); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.card-product__price { font-weight:600; color:var(--c-12); white-space:nowrap; }
+.card-product__meta { color:var(--c-11); padding-bottom:var(--sp-2); }
+.card-product__meta span:first-child { flex:1 0 0; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.card-product__meta span:last-child { white-space:nowrap; }
+.card-product__btn { width:100%; border-color:var(--c-7); }
+
+/* Footer: pagination + arrows */
+.speed__footer { display:flex; align-items:center; justify-content:space-between; width:100%; }
+.speed__dots { display:flex; align-items:center; gap:var(--sp-2); }
+.speed__dot { width:8px; height:8px; border-radius:var(--radius-full); background:var(--c-5); }
+.speed__dot.is-active { background:var(--c-11); }
+.speed__arrows { display:flex; gap:var(--sp-2); }
+.carousel-arrow {
+  width:32px; height:32px; flex:none; display:flex; align-items:center; justify-content:center;
+  border:var(--border-1) solid var(--c-6); border-radius:var(--radius-6); color:var(--c-12);
+  transition:background-color .15s ease, border-color .15s ease;
+}
+.carousel-arrow:hover { background:var(--c-3); }
+.carousel-arrow[disabled] { opacity:var(--alpha-disabled); pointer-events:none; }
+/* Inline chevron — true 4×8 glyph in a 16px box (Figma Icon/Chevron), themed via currentColor */
+.carousel-arrow svg { width:16px; height:16px; display:block; }
+.carousel-arrow svg path { fill:none; stroke:currentColor; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
+
+@media (max-width:1023px) {
+  .speed { padding-block:48px; }
+  .speed__header { flex-direction:column; align-items:stretch; gap:var(--gap-actions); }
+  .speed__heading { font-size:32px; }
+  .speed__sub { font-size:20px; }
+  .speed__actions { align-self:flex-end; }   /* CTA right-aligned, auto width */
+}

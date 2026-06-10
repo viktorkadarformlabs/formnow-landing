@@ -1,0 +1,13 @@
+/* DEV: foundations / style-reference styling (temporary) */
+.styleref { display:flex; flex-direction:column; gap:var(--sp-6); padding-block:var(--sp-12); }
+.styleref__h { margin-top:var(--sp-6); margin-bottom:var(--sp-4); }
+
+.swatches { display:grid; grid-template-columns:repeat(6,1fr); gap:var(--sp-2); }
+.swatches--acc { grid-template-columns:repeat(4,minmax(0,160px)); }
+@media (min-width:1024px) { .swatches { grid-template-columns:repeat(12,1fr); } }
+.sw { display:flex; flex-direction:column; gap:var(--sp-1); }
+.sw i { height:56px; border-radius:var(--radius-6); border:var(--border-1) solid var(--c-6); }
+.sw b { font-weight:500; font-size:11px; line-height:1.4; color:var(--c-11); }
+
+.typeset { display:flex; flex-direction:column; gap:var(--sp-3); }
+.btnrow { display:flex; gap:var(--sp-3); flex-wrap:wrap; }

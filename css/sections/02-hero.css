@@ -1,0 +1,160 @@
+/* ===== Section/Hero ===== */
+/* z-index:3 lifts the hero (and its overflowing glow) above the following sections so the halo is
+   painted ON TOP of them instead of being cropped — but below the sticky nav (z-50) so the nav stays
+   clean. The glow itself is pointer-events:none, so content under it (e.g. company logos) stays clickable. */
+.hero { background:var(--c-1); padding:var(--pad-mobile); position:relative; z-index:3; }
+@media (min-width:1024px) { .hero { padding:var(--pad-desktop); } }
+
+/* Stage wraps the frame + the ambient glow so the glow can bleed beyond the frame's rounded box. */
+.hero__stage { position:relative; width:100%; max-width:var(--content-max); margin-inline:auto; }
+
+/* Ambient "cinematic" glow — a blurred, scaled-up copy of the hero video painted behind the frame.
+   Its colours spill out around the frame as a soft halo (YouTube ambient-mode style). hero.js keeps
+   it time-synced with the real video. */
+.hero__ambient {
+  position:absolute; z-index:0; left:0; top:0; width:100%; height:100%;
+  object-fit:cover; pointer-events:none;
+  transform:scale(1.05); transform-origin:center;
+  filter:blur(64px) saturate(1.3);
+  opacity:.42; will-change:transform;
+  background:linear-gradient(155deg,#2a2928 0%,#141413 55%,#0c0c0b 100%);  /* fallback until video loads */
+}
+@media (prefers-reduced-motion: reduce) { .hero__ambient { display:none; } }   /* decorative motion */
+/* Light mode reads with less contrast against the bright bg than dark mode — boost the glow ~30% */
+[data-theme="light"] .hero__ambient { filter:blur(64px) saturate(1.3) contrast(1.3); }
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) .hero__ambient { filter:blur(64px) saturate(1.3) contrast(1.3); }
+}
+
+.hero__frame {
+  position:relative; z-index:1; width:100%;
+  display:flex; flex-direction:column; justify-content:space-between;
+  /* fixed white 10% stroke in BOTH themes / all breakpoints (Figma 9489:41905) — reads well over the ambilight */
+  border:var(--border-1) solid rgba(255,255,255,0.1); border-radius:24px; overflow:hidden;
+  padding:8px;
+  height:clamp(560px, 78vh, 900px);   /* DEV: viewport-based height, capped at 900 */
+  color:#fff;                          /* content sits over the video — white in both themes */
+}
+
+/* Background video (gradient = poster fallback until assets/hero.mp4 is provided) */
+.hero__video { position:absolute; inset:0; z-index:0; width:100%; height:100%; object-fit:cover;
+  background:linear-gradient(155deg,#2a2928 0%,#141413 55%,#0c0c0b 100%); }
+/* Progressive blur/darken overlays (exact Figma easing). Same multi-stop ramp, flipped per edge. */
+.hero__frame {
+  --video-fade:
+    rgba(0,0,0,0) 0%, rgba(0,0,0,0.015) 4.6963%, rgba(0,0,0,0.031) 8.9037%,
+    rgba(0,0,0,0.049) 12.8%, rgba(0,0,0,0.071) 16.563%, rgba(0,0,0,0.096) 20.37%,
+    rgba(0,0,0,0.125) 24.4%, rgba(0,0,0,0.16) 28.83%, rgba(0,0,0,0.2) 33.837%,
+    rgba(0,0,0,0.247) 39.6%, rgba(0,0,0,0.301) 46.296%, rgba(0,0,0,0.362) 54.104%,
+    rgba(0,0,0,0.432) 63.2%, rgba(0,0,0,0.511) 73.763%, rgba(0,0,0,0.6) 85.97%,
+    rgba(0,0,0,0.7) 100%;
+}
+.hero__fade { position:absolute; left:-1px; right:-1px; z-index:1; pointer-events:none; overflow:hidden; }
+/* heights proportional to frame (Figma 414/150 over ~800 ≈ 50% / 19%) so a clear band of video always shows */
+.hero__fade--top    { top:-1px;    height:50%; max-height:414px; }
+.hero__fade--bottom { bottom:-1px; height:19%; max-height:150px; }
+
+/* Progressive blur: stacked backdrop-blur layers, each masked to a band, blur doubling toward the edge.
+   Result ramps from 0 (clear, at the inner edge) up to 8px at the video edge — no hard line. */
+.pblur { position:absolute; inset:0; }
+.pblur > i { position:absolute; inset:0; display:block; }
+.pblur > i:nth-child(1){ -webkit-backdrop-filter:blur(0.5px); backdrop-filter:blur(0.5px);
+  -webkit-mask:linear-gradient(to bottom, transparent 0%, #000 20%, #000 40%, transparent 60%);
+          mask:linear-gradient(to bottom, transparent 0%, #000 20%, #000 40%, transparent 60%); }
+.pblur > i:nth-child(2){ -webkit-backdrop-filter:blur(1px); backdrop-filter:blur(1px);
+  -webkit-mask:linear-gradient(to bottom, transparent 20%, #000 40%, #000 60%, transparent 80%);
+          mask:linear-gradient(to bottom, transparent 20%, #000 40%, #000 60%, transparent 80%); }
+.pblur > i:nth-child(3){ -webkit-backdrop-filter:blur(2px); backdrop-filter:blur(2px);
+  -webkit-mask:linear-gradient(to bottom, transparent 40%, #000 60%, #000 80%, transparent 100%);
+          mask:linear-gradient(to bottom, transparent 40%, #000 60%, #000 80%, transparent 100%); }
+.pblur > i:nth-child(4){ -webkit-backdrop-filter:blur(4px); backdrop-filter:blur(4px);
+  -webkit-mask:linear-gradient(to bottom, transparent 60%, #000 80%, #000 100%);
+          mask:linear-gradient(to bottom, transparent 60%, #000 80%, #000 100%); }
+.pblur > i:nth-child(5){ -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px);
+  -webkit-mask:linear-gradient(to bottom, transparent 80%, #000 100%);
+          mask:linear-gradient(to bottom, transparent 80%, #000 100%); }
+.pblur--up { transform:rotate(180deg); }
+
+.hero__darken { position:absolute; inset:0; }
+.hero__darken--top    { background:linear-gradient(0deg,   var(--video-fade)); }
+.hero__darken--bottom { background:linear-gradient(180deg, var(--video-fade)); }
+
+.hero__grid {
+  position:relative; z-index:2; flex:1 0 0;
+  display:grid; grid-template-columns:repeat(12,minmax(0,1fr));
+  grid-template-rows:max-content max-content;
+  gap:var(--sp-4) var(--sp-6); align-content:start;   /* rows pack to top (Figma fit-content) */
+  padding:var(--sp-6);
+}
+.hero__heading {
+  grid-column:1 / span 8; grid-row:1; align-self:start;
+  font-family:var(--font-display); font-weight:600; font-size:48px; line-height:58px;
+  max-width:720px; color:#fff; text-shadow:0 0 32px rgba(0,0,0,0.5);
+}
+.hero__badge {
+  grid-column:9 / span 4; grid-row:1; justify-self:end; align-self:start;
+  display:inline-flex; align-items:center; gap:var(--sp-2);
+  border:var(--border-1) solid rgba(255,255,255,0.7); border-radius:var(--radius-md);
+  padding:8px 12px 8px 8px; color:rgba(255,255,255,0.7);
+  font-weight:500; font-size:12px; line-height:1.5; text-transform:uppercase; white-space:nowrap;
+}
+.hero__flag { width:24px; height:18px; flex:none; border-radius:2px; overflow:hidden; background:rgba(255,255,255,0.7); }
+.hero__flag img { width:100%; height:100%; object-fit:cover; }
+
+.hero__madeby {
+  grid-column:1 / span 6; grid-row:2; align-self:start;
+  display:flex; align-items:center; gap:var(--sp-1);
+  color:rgba(255,255,255,0.7); font-weight:400; font-size:16px; line-height:1.5;
+  text-shadow:0 0 32px rgba(0,0,0,0.5);
+}
+/* Exact Figma "formlabs-fixed" lockup (108×16): wordmark left, butterfly mark right */
+.hero__formlabs { position:relative; width:108px; height:16px; flex:none; }
+.hero__formlabs-word { position:absolute; left:0.07%; top:1.34%; width:75.16%; height:97.33%; }
+.hero__formlabs-mark { position:absolute; left:78.7%; top:2.19%; width:21.3%; height:95.58%; }
+
+/* Upload field (themes via accent tokens) — solid outer box + dashed inner box (per Figma) */
+.hero__upload { position:relative; z-index:2; padding-top:64px; }
+/* First-load intro: the upload field rises up from inside the video frame (clipped by the frame's
+   overflow:hidden, so it looks like it emerges from the bottom) 1s after the nav appears (3s). */
+@keyframes hero-upload-rise { from { transform:translateY(115%); } to { transform:translateY(0); } }
+.hero-intro .hero__upload { animation:hero-upload-rise .7s cubic-bezier(.22,1,.36,1) 2.5s both; }
+@media (prefers-reduced-motion: reduce) { .hero-intro .hero__upload { animation:none; } }
+.hero__upload-box {
+  background:var(--acc-1); border:var(--border-1) solid color-mix(in srgb, var(--c-12) 5%, transparent);
+  border-radius:var(--radius-2xl); padding:var(--sp-2); box-shadow:0 0 16px rgba(0,0,0,0.25);
+  -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
+}
+.hero__upload-dash {
+  position:relative; color:var(--acc-3); --dash-radius:8px;
+  display:flex; align-items:center; gap:var(--sp-6);
+  border-radius:var(--radius-md); padding:var(--sp-2);
+}
+/* Hover anywhere on the in-video upload field: only the dashed line color changes
+   (→ accent 4, themes 1:1) — same behavior as the sticky upload bar. */
+.hero__upload-box { cursor:pointer; }
+.hero__upload-box:hover { --dash-color:var(--acc-4); }
+.hero__upload-left { display:flex; align-items:center; gap:var(--sp-4); }
+.hero__upload-files { display:flex; align-items:center; gap:var(--sp-2); color:var(--acc-4); }
+.hero__upload-drag { font-weight:500; font-size:20px; line-height:1.2; letter-spacing:-0.04em; }
+.hero__upload-secure { display:flex; align-items:center; gap:var(--sp-1); color:var(--acc-4); font-weight:400; font-size:14px; line-height:1.5; }
+/* 1024–1280px: the secure note + lock doesn't fit — hide it */
+@media (min-width:1024px) and (max-width:1279px) { .hero__upload-secure { display:none; } }
+.hero__upload-right { display:flex; flex:1 0 0; min-width:0; align-items:center; justify-content:flex-end; gap:var(--sp-4); }
+.hero__upload-eta { display:flex; align-items:center; gap:var(--sp-1); color:var(--c-12); font-size:14px; line-height:1.5; white-space:nowrap; }
+.hero__upload-eta b { width:5px; text-align:center; }
+.hero__upload-types { color:var(--acc-4); font-weight:500; font-size:14px; line-height:1.5; text-transform:uppercase; white-space:nowrap; }
+
+/* --- Mobile (<1024) — Figma 9489:41036 --- */
+@media (max-width:1023px) {
+  .hero__stage { max-width:var(--paragraph-max); }   /* mobile content caps at 720 like the rest */
+  /* content packs at the TOP of the frame; badge on top, then heading, then made-by */
+  .hero__grid { display:flex; flex-direction:column; justify-content:flex-start; align-items:flex-start; gap:var(--sp-4); padding:var(--sp-2); }
+  .hero__badge { order:-1; align-self:flex-start; }
+  .hero__heading { font-size:32px; line-height:1.2; max-width:none; text-transform:capitalize; }
+  /* Mobile upload field = accent-3 dash, just the ETA + a full-width Upload Now button */
+  .hero__upload-dash { color:var(--acc-3); }
+  .hero__upload-left, .hero__upload-types { display:none; }
+  .hero__upload-right { width:100%; flex:1 1 auto; flex-direction:column; gap:var(--sp-1_5); justify-content:center; }
+  .hero__upload-eta { justify-content:center; text-align:center; }
+  .hero__upload-right .btn { width:100%; }
+}

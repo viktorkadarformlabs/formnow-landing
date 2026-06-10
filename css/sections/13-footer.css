@@ -1,0 +1,54 @@
+/* ===== Section/Footer — brand + link columns + legal bar with theme toggle ===== */
+.footer { background:var(--c-2); border-top:var(--border-1) solid var(--c-4); }
+.footer__inner { display:flex; flex-direction:column; }
+
+.footer__content { display:flex; align-items:flex-start; justify-content:space-between; gap:var(--sp-6); padding-block:72px; }
+
+/* Left side */
+.footer__left { display:flex; flex-direction:column; gap:56px; flex:none; }
+.footer__brand { display:flex; align-items:center; gap:var(--sp-3); }
+.footer__logo { display:flex; align-items:center; gap:var(--sp-1); color:var(--c-12); }
+.footer__mark { color:var(--c-12); }
+.footer__wordmark { font-family:var(--font-display); font-weight:600; font-size:16px; line-height:1.05; text-transform:uppercase; color:var(--c-12); }
+.footer__rule { width:1px; height:40px; background:var(--c-4); flex:none; }
+.footer__by { display:flex; align-items:center; gap:var(--sp-2); }
+.footer__by-label { font-weight:400; font-size:14px; line-height:1.5; color:var(--c-11); }
+.footer__formlabs { display:inline-flex; align-items:center; gap:6px; color:var(--c-12); }
+
+.footer__cta-wrap { border:var(--border-1) solid var(--c-7); border-radius:10px; padding:var(--sp-1); }
+.footer__cta { width:100%; }
+
+/* Link columns */
+.footer__cols { flex:1 1 0; min-width:0; display:flex; gap:var(--sp-2); justify-content:flex-end; max-width:800px; }
+.footer__col { flex:1 1 0; min-width:0; max-width:120px; display:flex; flex-direction:column; gap:var(--sp-2); }
+.footer__link { font-weight:400; font-size:14px; line-height:1.5; color:var(--c-11); transition:color .15s ease; white-space:nowrap; }
+.footer__link:hover { color:var(--c-12); }
+.footer__link--head { font-weight:500; font-size:16px; color:var(--c-12); }
+
+/* Bottom legal bar */
+.footer__bottom { display:flex; align-items:center; justify-content:space-between; gap:var(--sp-4); border-top:var(--border-1) solid var(--c-4); padding-block:var(--sp-6); }
+.footer__copy { font-weight:400; font-size:14px; line-height:1.5; color:var(--c-11); }
+.footer__legal { display:flex; align-items:center; gap:var(--sp-1); }
+.footer__dot { color:var(--c-11); padding-inline:2px; }
+
+/* Theme toggle (System / Light / Dark) */
+.footer__mode { display:flex; align-items:center; gap:1px; margin-right:var(--sp-4); padding:2px; background:var(--c-3); border:var(--border-1) solid var(--c-4); border-radius:var(--radius-md); }
+.footer__mode-btn {
+  display:flex; align-items:center; justify-content:center; width:28px; height:22px; padding:2px;
+  border:var(--border-1) solid transparent; border-radius:var(--radius-6); color:var(--c-11);
+  transition:background-color .15s ease, color .15s ease, border-color .15s ease;
+}
+.footer__mode-btn:hover { color:var(--c-12); }
+.footer__mode-btn.is-active { background:var(--c-4); border-color:var(--c-6); color:var(--c-12); }
+.footer__mode-btn svg { width:18px; height:18px; }
+.footer__mode-btn svg circle, .footer__mode-btn svg rect, .footer__mode-btn svg path { fill:none; stroke:currentColor; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; }
+.footer__mode-div { width:1px; height:14px; background:var(--c-4); margin-inline:2px; }
+
+/* --- Mobile --- DEV: reconcile with Figma mobile footer --- */
+@media (max-width:1023px) {
+  .footer__content { flex-direction:column; gap:48px; padding-block:48px; }
+  .footer__cols { justify-content:flex-start; flex-wrap:wrap; gap:32px 24px; max-width:none; width:100%; }
+  .footer__col { flex:1 0 40%; max-width:none; }
+  .footer__bottom { flex-direction:column; align-items:flex-start; gap:var(--sp-4); }
+  .footer__legal { flex-wrap:wrap; }
+}

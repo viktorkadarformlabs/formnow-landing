@@ -1,0 +1,31 @@
+/* ===== Section/Technology — heading + two technology cards (SLA / SLS) ===== */
+.tech { background:var(--c-1); padding-block:72px; }
+.tech__container { display:flex; flex-direction:column; gap:var(--gap-head-content); }  /* 48 */
+
+.tech__row { display:flex; gap:var(--gap-content); width:100%; }  /* 24 */
+
+.tech__card {
+  flex:1 1 0; min-width:0;
+  display:flex; flex-direction:column; gap:var(--sp-2);
+  background:var(--c-2); border:var(--border-1) solid var(--c-4); border-radius:24px; padding:var(--sp-2);
+}
+.tech__media {
+  position:relative;
+  width:100%; aspect-ratio:692 / 445;   /* Figma media 445.333px tall at the 1440 layout */
+  border:var(--border-1) solid var(--c-4); border-radius:var(--radius-2xl); overflow:hidden;
+  box-shadow:0 0 4px var(--shadow-color);
+}
+.tech__media img,
+.tech__media video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+
+.tech__body { display:flex; flex-direction:column; gap:var(--sp-4); padding:var(--sp-4); }
+.tech__title { color:var(--c-12); }
+.tech__divider { height:1px; width:100%; background:var(--c-5); }
+.tech__desc { font-weight:400; font-size:16px; line-height:1.5; color:var(--c-11); }
+
+/* --- Mobile --- */
+@media (max-width:1023px) {
+  .tech { padding-block:48px; }
+  .tech__row { flex-direction:column; }
+  .tech__media { aspect-ratio:3 / 2; }
+}

@@ -1,0 +1,114 @@
+<section class="section price" data-node-id="9489:39634" data-name="Section/Price">
+  <div class="container price__container">
+
+    <div class="section-head">
+      <div class="section-head__text">
+        <h2 class="t-h1 section-head__title">Build for an affordable price.</h2>
+        <p class="t-subsection u-muted section-head__sub">Prototype your project or build your end-use products with us</p>
+      </div>
+      <div class="section-head__actions">
+        <button class="btn btn--accent btn--ms" type="button">Upload to Build</button>
+      </div>
+    </div>
+
+    <!-- DEV: bulk-pricing "solution". DESKTOP = shared media (tabs + 8s autoplay timeline) + 3 stacked cards
+         (the selected one highlighted). MOBILE = a tabs row + a horizontal carousel of self-contained cards
+         (image-topped, outline tags) + a dots/arrows footer (Figma 9489:41283). Content duplicated per topic. -->
+    <div class="price__block">
+
+      <!-- Mobile-only topic tabs row -->
+      <div class="price__tabs-row" role="tablist" aria-label="Example">
+        <button class="price__tab is-active" type="button" role="tab" aria-selected="true" data-topic="computer-case">Computer Case</button>
+        <button class="price__tab" type="button" role="tab" aria-selected="false" data-topic="automotive-door">Automotive Door</button>
+        <button class="price__tab" type="button" role="tab" aria-selected="false" data-topic="miniature">Miniature</button>
+      </div>
+
+      <div class="price__solution">
+        <div class="price__media">
+          <img class="price__img" src="../assets/price-computer-case.png" alt="Computer case assembly" />
+
+          <div class="price__tabs" role="tablist">
+            <button class="price__tab is-active" type="button" role="tab" aria-selected="true" data-topic="computer-case">Computer Case</button>
+            <button class="price__tab" type="button" role="tab" aria-selected="false" data-topic="automotive-door">Automotive Door</button>
+            <button class="price__tab" type="button" role="tab" aria-selected="false" data-topic="miniature">Miniature</button>
+          </div>
+
+          <button class="price__autoplay is-playing" type="button" aria-label="Pause autoplay" data-autoplay>
+            <svg class="price__ring" viewBox="0 0 36 36" aria-hidden="true">
+              <circle class="price__ring-track" cx="18" cy="18" r="17"></circle>
+              <circle class="price__ring-fill" cx="18" cy="18" r="17"></circle>
+            </svg>
+            <span class="price__autoplay-icon" aria-hidden="true">
+              <svg class="price__icon-pause" viewBox="0 0 11.25 13.5" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.6875 0C0.755859 0 0 0.755859 0 1.6875V11.8125C0 12.7441 0.755859 13.5 1.6875 13.5H2.8125C3.74414 13.5 4.5 12.7441 4.5 11.8125V1.6875C4.5 0.755859 3.74414 0 2.8125 0H1.6875ZM8.4375 0C7.50586 0 6.75 0.755859 6.75 1.6875V11.8125C6.75 12.7441 7.50586 13.5 8.4375 13.5H9.5625C10.4941 13.5 11.25 12.7441 11.25 11.8125V1.6875C11.25 0.755859 10.4941 0 9.5625 0H8.4375Z" fill="currentColor"/></svg>
+              <svg class="price__icon-play" viewBox="0 0 13.5 15.7528" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.56641 0.248121C2.04609 -0.0718006 1.39219 -0.0823475 0.861328 0.216481C0.330469 0.515309 0 1.07781 0 1.68953V14.0645C0 14.6762 0.330469 15.2387 0.861328 15.5376C1.39219 15.8364 2.04609 15.8223 2.56641 15.5059L12.6914 9.31843C13.1941 9.01257 13.5 8.46765 13.5 7.87703C13.5 7.2864 13.1941 6.745 12.6914 6.43562L2.56641 0.248121Z" fill="currentColor"/></svg>
+            </span>
+          </button>
+        </div>
+
+        <div class="price__cards" data-price-cards>
+          <div class="price__cards-row" id="price-row">
+
+            <div class="price-card is-selected" role="button" tabindex="0" data-price-card data-img="../assets/price-computer-case.png">
+              <div class="price-card__media"><img src="../assets/price-computer-case.png" alt="" /></div>
+              <div class="price-card__inner">
+                <div class="price-card__head">
+                  <span class="price-card__title">Water block</span>
+                  <span class="price-card__badge">SLA • Clear</span>
+                </div>
+                <div class="price-card__divider"></div>
+                <div class="price-card__tiers">
+                  <div class="price-tier"><span class="price-tier__qty">× 1</span><div class="price-tier__value"><span class="price-tier__price">$34.12</span><span class="price-tier__disc">Base</span></div></div>
+                  <div class="price-tier"><span class="price-tier__qty">× 10</span><div class="price-tier__value"><span class="price-tier__price">$19.33</span><span class="price-tier__disc">-55%</span></div></div>
+                  <div class="price-tier"><span class="price-tier__qty">× 100</span><div class="price-tier__value"><span class="price-tier__price">$14.00</span><span class="price-tier__disc">-65%</span></div></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="price-card" role="button" tabindex="0" data-price-card data-img="../assets/price-computer-case.png">
+              <div class="price-card__media"><img src="../assets/price-computer-case.png" alt="" /></div>
+              <div class="price-card__inner">
+                <div class="price-card__head">
+                  <span class="price-card__title">Piping</span>
+                  <span class="price-card__badge">SLA • Durable</span>
+                </div>
+                <div class="price-card__divider"></div>
+                <div class="price-card__tiers">
+                  <div class="price-tier"><span class="price-tier__qty">× 1</span><div class="price-tier__value"><span class="price-tier__price">$12.41</span><span class="price-tier__disc">Base</span></div></div>
+                  <div class="price-tier"><span class="price-tier__qty">× 10</span><div class="price-tier__value"><span class="price-tier__price">$8.82</span><span class="price-tier__disc">-55%</span></div></div>
+                  <div class="price-tier"><span class="price-tier__qty">× 100</span><div class="price-tier__value"><span class="price-tier__price">$6.20</span><span class="price-tier__disc">-65%</span></div></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="price-card" role="button" tabindex="0" data-price-card data-img="../assets/price-computer-case.png">
+              <div class="price-card__media"><img src="../assets/price-computer-case.png" alt="" /></div>
+              <div class="price-card__inner">
+                <div class="price-card__head">
+                  <span class="price-card__title">Panels</span>
+                  <span class="price-card__badge">SLA • Rigid 10K</span>
+                </div>
+                <div class="price-card__divider"></div>
+                <div class="price-card__tiers">
+                  <div class="price-tier"><span class="price-tier__qty">× 1</span><div class="price-tier__value"><span class="price-tier__price">$9.41</span><span class="price-tier__disc">Base</span></div></div>
+                  <div class="price-tier"><span class="price-tier__qty">× 10</span><div class="price-tier__value"><span class="price-tier__price">$4.82</span><span class="price-tier__disc">-55%</span></div></div>
+                  <div class="price-tier"><span class="price-tier__qty">× 100</span><div class="price-tier__value"><span class="price-tier__price">$3.20</span><span class="price-tier__disc">-65%</span></div></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile-only carousel footer -->
+      <div class="price__footer">
+        <div class="price__dots" data-carousel-dots="price-row"></div>
+        <div class="price__arrows">
+          <button class="carousel-arrow" type="button" aria-label="Previous" data-carousel-prev="price-row" disabled><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 4 L6 8 L10 12"/></svg></button>
+          <button class="carousel-arrow" type="button" aria-label="Next" data-carousel-next="price-row"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 4 L10 8 L6 12"/></svg></button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

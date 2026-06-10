@@ -1,0 +1,205 @@
+/* ============================================================
+   Form Now — Landing 2.0 · Base (reset, fonts, layout, type, buttons)
+   ============================================================ */
+
+/* ---- Fonts (exact families from Figma "Landing 2.0") ----
+   Supreme Variable  — body + most headings (variable weight, uses 400/500/600)
+   Midnight Sans RD Pro — hero heading + primary CTA (weight 600 "48 SemiBold")
+   src tries hosted webfont files first, then falls back to a locally-installed
+   copy so it renders now. DROP THE FILES at the paths below for portability
+   (GitHub / machines without the fonts installed). */
+@font-face {
+  font-family:'Supreme Variable';
+  /* local() first = use the installed copy now; url() = hosted fallback for other machines */
+  src:local('Supreme Variable'),
+      local('SupremeVariable-Extrabold'),
+      url('../assets/fonts/SupremeVariable.woff2') format('woff2-variations');
+  font-weight:100 900; font-style:normal; font-display:swap;
+}
+@font-face {
+  font-family:'Midnight Sans RD Pro';
+  src:local('Midnight Sans RD Pro 48 SemiBold'),
+      local('MidnightSansRDPro-48SemiBold'),
+      local('Midnight Sans RD Pro'),
+      url('../assets/fonts/MidnightSansRDPro-48SemiBold.woff2') format('woff2');
+  font-weight:600; font-style:normal; font-display:swap;
+}
+
+/* ---- Reset ---- */
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { -webkit-text-size-adjust:100%; scroll-behavior:smooth; }
+body {
+  background:var(--c-1);
+  color:var(--c-12);
+  font-family:var(--font-sans);
+  font-weight:400;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Uniform theme cross-fade: theme.js adds .theme-anim to <html> for the duration of a toggle so
+   every element changes together, then removes it (keeps hover/other transitions untouched otherwise). */
+html.theme-anim,
+html.theme-anim *,
+html.theme-anim *::before,
+html.theme-anim *::after {
+  transition: background-color .28s ease, color .28s ease, border-color .28s ease,
+              fill .28s ease, stroke .28s ease, box-shadow .28s ease !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  html.theme-anim, html.theme-anim *, html.theme-anim *::before, html.theme-anim *::after { transition:none !important; }
+}
+img,svg,video { display:block; max-width:100%; }
+a { color:inherit; text-decoration:none; }
+button { font:inherit; color:inherit; background:none; border:none; cursor:pointer; }
+ul,ol { list-style:none; }
+
+/* ---- Layout: full-bleed section + capped content container ---- */
+.section { width:100%; }
+/* Content cap is the INNER width; the side padding sits OUTSIDE it.
+   Desktop: 1440 content + 2×24 padding = 1488 outer.  Mobile: 720 + 2×16 = 752 outer. */
+.container {
+  width:100%;
+  margin-inline:auto;
+  max-width:calc(var(--paragraph-max) + 2 * var(--pad-mobile));   /* 720 + 32 = 752 */
+  padding-inline:var(--pad-mobile); /* 16 mobile */
+}
+@media (min-width:1024px) {
+  .container {
+    max-width:calc(var(--content-max) + 2 * var(--pad-desktop));  /* 1440 + 48 = 1488 */
+    padding-inline:var(--pad-desktop); /* 24 desktop */
+  }
+}
+
+/* ============================================================
+   Typography utilities — map 1:1 to Figma text styles.
+   Figma letterSpacing "-4" = -4% = -0.04em (verified: -0.8px @ 20px).
+   ============================================================ */
+.t-hero       { font-family:var(--font-display); font-weight:600; font-size:48px; line-height:58px; letter-spacing:0; }        /* heading/main */
+.t-h1         { font-weight:500; font-size:48px; line-height:1.2; letter-spacing:-0.04em; }  /* SV Main Heading */
+.t-subheading { font-weight:500; font-size:32px; line-height:1.2; letter-spacing:-0.04em; }  /* SV Subheading */
+.t-section    { font-weight:500; font-size:28px; line-height:1.2; letter-spacing:-0.04em; }  /* SV Section Heading */
+.t-subsection { font-weight:500; font-size:24px; line-height:1.2; letter-spacing:-0.04em; }  /* SV Subsection Heading */
+.t-subsub     { font-weight:500; font-size:20px; line-height:1.2; letter-spacing:-0.04em; }  /* SV Sub-subsection Heading */
+.t-minor      { font-weight:500; font-size:16px; line-height:1.5; letter-spacing:0; }        /* SV Minor Heading */
+
+.t-body       { font-weight:400; font-size:16px; line-height:1.5; }   /* Paragraph Standard */
+.t-body-md    { font-weight:400; font-size:14px; line-height:1.5; }   /* Paragraph Medium */
+.t-body-sm    { font-weight:400; font-size:12px; line-height:1.5; }   /* Paragraph Small */
+
+.t-label      { font-weight:600; font-size:16px; line-height:1.5; }   /* Label Standard */
+.t-label-md   { font-weight:600; font-size:14px; line-height:1.5; }   /* Label Medium */
+.t-label-sm   { font-weight:600; font-size:12px; line-height:1.5; }   /* Label Small */
+
+.t-eyebrow    { font-weight:500; font-size:14px; line-height:1.5; }   /* Eyebrow Medium */
+.t-eyebrow-sm { font-weight:500; font-size:12px; line-height:1.5; }   /* Eyebrow Small */
+.t-eyebrow-xs { font-weight:500; font-size:12px; line-height:18px; }  /* eyebrow/xs */
+
+/* Mobile heading overrides (Figma Mobile styles) */
+@media (max-width:1023px) {
+  .t-hero\@m,  .t-hero.is-mobile  { font-family:var(--font-display); font-weight:600; font-size:20px; line-height:1.2; } /* MS Mobile Subsection */
+}
+
+.u-muted   { color:var(--c-11); }
+.u-faint   { color:var(--c-10); }
+.u-uppercase { text-transform:uppercase; }
+.u-measure { max-width:var(--paragraph-max); }
+
+/* ============================================================
+   Buttons
+   ============================================================ */
+.btn {
+  display:inline-flex; align-items:center; justify-content:center;
+  gap:var(--sp-2);
+  border-radius:var(--radius-6);
+  padding:var(--sp-1_5) var(--sp-4);   /* Standard = 36px tall (6 / 16) */
+  white-space:nowrap;
+  transition:background-color .15s ease, color .15s ease, border-color .15s ease, opacity .15s ease;
+}
+/* --- Size modifier (orthogonal to type) --- */
+.btn--sm { padding:1px var(--sp-3); }  /* Small = 26px tall (1 / 12) */
+
+/* --- Two button TYPE styles from Figma (Button V2). font-size follows size. --- */
+/* SV Button — Supreme Variable ("Button/SV Button Style" 16/24/-2; small "button/sup-sm" 14/24) */
+.btn--sv          { font-weight:500; font-size:16px; line-height:24px; letter-spacing:-0.02em; }
+.btn--sv.btn--sm  { font-size:14px; letter-spacing:-0.2px; }
+/* MS Button — Midnight Sans RD Pro, uppercase ("Button/MS Button Style" 12/24; small "MS Button Small" 10/24) */
+.btn--ms          { font-family:var(--font-display); font-weight:600; font-size:12px; line-height:24px; text-transform:uppercase; }
+.btn--ms.btn--sm  { font-size:10px; }
+
+.btn--accent  { background:var(--acc-4); color:var(--on-accent); }
+.btn--accent:hover { filter:brightness(1.06); }
+.btn--outline { border:var(--border-1) solid var(--c-6); color:var(--c-12); }
+.btn--outline:hover { background:var(--c-3); }
+.btn[disabled],.btn.is-disabled { opacity:var(--alpha-disabled); pointer-events:none; }
+
+/* Reusable section header (Block / Section Header!): heading + subhead on the left, actions on the right */
+.section-head { display:flex; align-items:flex-end; gap:var(--gap-actions); width:100%; }
+.section-head__text { flex:1 0 0; min-width:0; display:flex; flex-direction:column; gap:var(--gap-head); }
+.section-head__title { color:var(--c-12); text-wrap:balance; }
+.section-head__sub { max-width:var(--paragraph-max); text-wrap:balance; }
+.section-head__actions { flex:none; }
+@media (max-width:1023px) {
+  .section-head { flex-direction:column; align-items:stretch; gap:var(--gap-actions); }  /* 24 above the CTA, not 16 */
+  .section-head__title { font-size:32px; }          /* SV Mobile Main Heading */
+  .section-head__sub { font-size:20px; }             /* SV Mobile Subsection */
+  .section-head__actions { align-self:flex-end; }    /* CTA right-aligned, auto width (not full) */
+}
+
+/* ---- Dynamic carousel pagination dots (iOS-style windowed; built + animated by carousel.js) ----
+   One dot per card; at most 3 stay full-size while the strip slides, and the dots toward more
+   pages shrink to a medium/small "there's more" indicator. The container width + strip transform
+   are set inline by JS; everything animates via the transitions below. */
+.cdots { overflow:hidden; flex:none; }
+.cdots__strip {
+  display:flex; align-items:center; gap:8px; width:max-content;
+  transition:transform .35s cubic-bezier(.22,1,.36,1); will-change:transform;
+}
+.cdot {
+  flex:none; width:8px; height:8px; border-radius:var(--radius-full); background:var(--c-5);
+  transform:scale(1); transform-origin:center;
+  transition:transform .35s cubic-bezier(.22,1,.36,1), background-color .25s ease;
+}
+.cdot.is-active { background:var(--c-11); }
+.cdot--mid    { transform:scale(.6); }    /* one page beyond the 3 full → medium */
+.cdot--small  { transform:scale(.34); }   /* two beyond → small */
+.cdot--hidden { transform:scale(0); }      /* further → collapsed (clipped anyway) */
+@media (prefers-reduced-motion: reduce) { .cdots__strip, .cdot { transition:none; } }
+
+/* utility */
+.is-visually-hidden { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0; }
+
+/* Theme-swapped content (e.g. a raster that has a baked background per theme).
+   Mirrors the token theme resolution: base = light. */
+.is-dark-only { display:none; }
+.is-light-only { display:block; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .is-dark-only { display:block; }
+  :root:not([data-theme]) .is-light-only { display:none; }
+}
+[data-theme="dark"] .is-dark-only  { display:block; }
+[data-theme="dark"] .is-light-only { display:none; }
+[data-theme="light"] .is-dark-only  { display:none; }
+[data-theme="light"] .is-light-only { display:block; }
+
+/* Monochrome icon via CSS mask — tints with currentColor so icons theme correctly.
+   Usage: <span class="icon" style="--icon:url('…svg'); width:24px; height:24px"></span> */
+.icon {
+  display:inline-block; flex:none;
+  background-color:currentColor;
+  /* box = the icon frame (gives padding); --icon-size renders the glyph at its true size, centered */
+  -webkit-mask:var(--icon) no-repeat center / var(--icon-size, contain);
+          mask:var(--icon) no-repeat center / var(--icon-size, contain);
+}
+
+/* Custom dashed stroke matching Figma (dash 4 / gap 4, rounded). Themes via currentColor on the parent.
+   Parent needs position:relative + color set; --dash-radius controls corner radius. */
+.dashed-stroke { position:absolute; inset:0; width:100%; height:100%; overflow:visible; pointer-events:none; }
+.dashed-stroke rect {
+  x:0.5px; y:0.5px; width:calc(100% - 1px); height:calc(100% - 1px);
+  rx:var(--dash-radius,8px); ry:var(--dash-radius,8px);
+  /* --dash-color lets a field tint just its border on hover (defaults to text color) */
+  fill:none; stroke:var(--dash-color, currentColor); stroke-width:1px; stroke-dasharray:4 4;
+  transition:stroke .15s ease;
+}
