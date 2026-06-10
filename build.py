@@ -57,6 +57,23 @@ def page(title, section_files):
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{title}</title>
+  <link rel="icon" type="image/png" href="../assets/favicon-light.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" href="../assets/favicon-dark.png" media="(prefers-color-scheme: dark)">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+  <meta name="theme-color" content="#111110">
+  <meta name="description" content="On-demand 3D printing by Formlabs — upload a model, get an instant quote across 28+ industrial-grade materials, and receive professional parts in as little as 2 days.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Form Now">
+  <meta property="og:title" content="Form Now — Professional, Low-Cost 3D Printed Parts in 2 Days">
+  <meta property="og:description" content="On-demand 3D printing by Formlabs — instant quotes across 28+ industrial materials, parts in as little as 2 days.">
+  <meta property="og:url" content="https://viktorkadarformlabs.github.io/formnow-landing/">
+  <meta property="og:image" content="https://viktorkadarformlabs.github.io/formnow-landing/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Form Now — Professional, Low-Cost 3D Printed Parts in 2 Days">
+  <meta name="twitter:description" content="On-demand 3D printing by Formlabs — instant quotes across 28+ industrial materials, parts in as little as 2 days.">
+  <meta name="twitter:image" content="https://viktorkadarformlabs.github.io/formnow-landing/assets/og-image.png">
   <script>(function(){{try{{var t=localStorage.getItem('fn-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}}catch(e){{}}try{{if((window.scrollY||window.pageYOffset||0)===0)document.documentElement.classList.add('hero-intro');}}catch(e){{}}}})();</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">

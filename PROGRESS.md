@@ -60,6 +60,10 @@ root node `9489:39290`). Not the configurator, now.formlabs.com, or the Framer s
 - Media re-encoded to web-friendly **H.264 720p, no audio** (`ffmpeg -an -c:v libx264 -crf 27 -vf scale=-2:'min(720,ih)' -movflags +faststart`): sources were ~150MB of 42–46 Mbps clips → now ~2.5MB total (tech-sla 79MB→1.1MB, step-3 46MB→0.83MB, etc.). Step videos converted `.mov`→`.mp4` (refs updated in 06-steps.html). Git history was rewritten to a single clean commit so the old blobs aren't in the repo.
 - To update the live site: `python3 build.py`, commit `dist/`, `git push`.
 
+## Icons / social / upload
+- Favicons + touch icon + social thumbnail from Figma "Social Assets" (6820:38893), using the designer's exact PNG exports: `favicon-light.png`/`favicon-dark.png` (64², wired with `prefers-color-scheme` media queries), `apple-touch-icon.png` (180²), `og-image.png` (1200×630). `<head>` (build.py template + root index.html) has the icon links, `theme-color`, and Open Graph / Twitter `summary_large_image` tags (og:image is an absolute Pages URL).
+- `js/upload.js`: clicking the hero drag-drop field, the sticky upload bar, or any "Upload …" CTA opens the native file picker (one delegated listener; non-upload CTAs ignored). Prototype only — files aren't processed.
+
 ## Section node IDs (dark "Large Example")
 sticky `9489:39302` · hero `9489:39386` · companies `9489:39452` · speed `9489:39486` ·
 price `9489:39634` · steps `9489:39756` · technology `9489:39788` · materials `9489:39823` ·
