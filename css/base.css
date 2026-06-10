@@ -9,11 +9,9 @@
    copy so it renders now. DROP THE FILES at the paths below for portability
    (GitHub / machines without the fonts installed). */
 @font-face {
+  /* Supreme Variable — bundled variable web font, so it renders identically on every device. */
   font-family:'Supreme Variable';
-  /* local() first = use the installed copy now; url() = hosted fallback for other machines */
-  src:local('Supreme Variable'),
-      local('SupremeVariable-Extrabold'),
-      url('../assets/fonts/SupremeVariable.woff2') format('woff2-variations');
+  src:url('../assets/fonts/Supreme-Variable.ttf') format('truetype-variations');
   font-weight:100 900; font-style:normal; font-display:swap;
 }
 @font-face {
