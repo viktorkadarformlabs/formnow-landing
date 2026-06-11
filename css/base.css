@@ -25,8 +25,12 @@
 
 /* ---- Reset ---- */
 *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
-html { -webkit-text-size-adjust:100%; scroll-behavior:smooth; }
+/* overflow-x:clip kills sideways page scroll from intentionally-overflowing decor (the scaled hero
+   ambient video, the companies marquee) WITHOUT creating a scroll container — `hidden` here would
+   break position:sticky (the nav). Vertical scrolling is untouched. */
+html { -webkit-text-size-adjust:100%; scroll-behavior:smooth; overflow-x:clip; }
 body {
+  overflow-x:clip;
   background:var(--c-1);
   color:var(--c-12);
   font-family:var(--font-sans);
